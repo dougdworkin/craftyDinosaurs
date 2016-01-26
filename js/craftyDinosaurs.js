@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var pageClicks = 1,
+	var pageCount = 1,
 		searchWord = '';
 		totalPages = '';
 
@@ -12,7 +12,7 @@ $(document).ready(function(){
 			api_key: 'q0r7ycz3zozftljmhx1yag8b',
 			terms: searchTerm + ', dinosaur',
 			itemsPerpage: '6',
-			pageNumber: pageClicks,
+			pageNumber: pageCount,
 			etsyURL: 'https://openapi.etsy.com/v2/listings/active.js?keywords='
 			};
 
@@ -42,14 +42,14 @@ $(document).ready(function(){
 						$('html, body').animate({ scrollTop: 0 }, 'slow');
 						$('.resultsContainer').css({left: '0', display: 'block'});
 
-						$('.resultsArea').append('<div class="output page' + pageClicks + '"></div>');
+						$('.resultsArea').append('<div class="output page' + pageCount + '"></div>');
 
 						$.each(data.results, function(i, item){
 							var output = getSearchInfo(item);
-							$('.page' + pageClicks).append(output);
+							$('.page' + pageCount).append(output);
 							})
 						// if there will be more items poplate the upcoming results page
-						if((totalItems) > (pageClicks*itemsPerpage)) {
+						if((totalItems) > (pageCount*itemsPerpage)) {
 							console.log('more items on nexr page');
 
 						}
@@ -143,7 +143,7 @@ $(document).ready(function(){
 
  	//Build message for results subheader that shows current page
  	function resultsSubHeader(count){
- 		var subheader = "(page <em>" + pageClicks + "</em> of <em>" + totalPages +"</em>)"; //"There are " + count + " of these made." +
+ 		var subheader = "(page <em>" + pageCount + "</em> of <em>" + totalPages +"</em>)"; //"There are " + count + " of these made." +
  		$('h2.resultsSubHeader').html(''); // clears previous message
  		return subheader;
  	}
@@ -157,7 +157,7 @@ $(document).ready(function(){
  		setTimeout(function() { 
  			$('div.resultsArea').html('');
  		}, 2000);
- 		pageClicks = 1;
+ 		pageCount = 1;
  	}
  	
  	// show next button if there are more than one page available
@@ -168,7 +168,7 @@ $(document).ready(function(){
 			$('li.next').css('display', 'none');
 		}
 
-		if(Pages == pageClicks){
+		if(Pages == pageCount){
 			$('li.next').css('display', 'none');
 		} else {
 			$('li.next').css('display', 'inline-block');
@@ -177,7 +177,7 @@ $(document).ready(function(){
 
 	// show previous button if pages have been advanced
 	function showPrevButton(Pages) {
-		if (Pages > 1 && pageClicks > 1){
+		if (Pages > 1 && pageCount > 1){
 			$('li.prev').css('display', 'inline-block');
 		} else {
 			$('li.prev').css('display', 'none');
@@ -240,17 +240,17 @@ $(document).ready(function(){
 	// add count of one to page count and run search on next page
 	$('li.next a').click(function(){
 		(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-		++pageClicks;
+		++pageCount;
 		searchDinoStuff(searchWord);
-		console.log(pageClicks);
+		console.log(pageCount);
 	});	
 
 	// subtract one from page count and run search on that page
 	$('li.prev a').click(function(){
 		(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
-		--pageClicks;
+		--pageCount;
 		searchDinoStuff(searchWord);
-		console.log(pageClicks);
+		console.log(pageCount);
 	});	
 
 
