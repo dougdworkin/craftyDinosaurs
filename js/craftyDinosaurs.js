@@ -1,11 +1,30 @@
 $(document).ready(function(){
 
 	var pageCount = 1,
-		searchWord = '';
-		totalPages = '';
+		searchWord = '',
+		totalPages = '',
+		pageDirection = '',
+		highestPageCount = '',
+		totalItems = '';
+		
+		
 
 	// send search request
 	function searchDinoStuff(searchTerm){
+	
+		//check if the results page has been already created
+		if (pageCount <= highestPageCount){
+
+			moveDinoResults(pageCount); // move the results forward or backwards
+
+			resultsSubHeaderMain = resultsSubHeader(totalItems); // show what page you are on
+			$('h2.resultsSubHeader').append(resultsSubHeaderMain); // append page #
+
+			showNextButton(totalPages); // show next button if more items
+			showPrevButton(totalPages); // show prev button if pages have been advanced
+			
+		} else { // if pages has not been created then create a new results page
+
 
 		// set up variables
 		var searchRequest = {
@@ -32,8 +51,11 @@ $(document).ready(function(){
 					//clear past search results
 					//$('.resultsArea').html('');
 					
-					var totalItems = data.count;
-					var itemsPerpage = searchRequest.itemsPerpage;
+					var totalItems = data.count,
+						itemsPerpage = searchRequest.itemsPerpage,
+						pagePercent = ((pageCount - 1) * 100) + '%';
+						
+
 
 					// look to see if there are any results and post them
 					if ((totalItems) > 0) {
@@ -41,18 +63,16 @@ $(document).ready(function(){
 						$('.searchContainer').css({left: '-300%'});
 						$('html, body').animate({ scrollTop: 0 }, 'slow');
 						$('.resultsContainer').css({left: '0', display: 'block'});
-
+						// create the new results div
 						$('.resultsArea').append('<div class="output page' + pageCount + '"></div>');
-
+						// loop through results and create all the items
 						$.each(data.results, function(i, item){
 							var output = getSearchInfo(item);
 							$('.page' + pageCount).append(output);
 							})
-						// if there will be more items poplate the upcoming results page
-						if((totalItems) > (pageCount*itemsPerpage)) {
-							console.log('more items on nexr page');
 
-						}
+						// move to the new results page on screen
+						moveDinoResults(pageCount);
 
 						//set up show next  & prev buttons
 						totalPages = Math.ceil(totalItems/itemsPerpage);
@@ -60,10 +80,15 @@ $(document).ready(function(){
 						showPrevButton(totalPages); // show prev button if pages have been advanced
 
 						//create headers for the results page
-						var resultsHeaderMain = resultsHeader(searchTerm); // show items searched
+						resultsHeaderMain = resultsHeader(searchTerm); // show items searched
 						$('h1.resultsHeader').append(resultsHeaderMain);
-						var resultsSubHeaderMain = resultsSubHeader(totalItems); // show what page you are on
+						resultsSubHeaderMain = resultsSubHeader(totalItems); // show what page you are on
 						$('h2.resultsSubHeader').append(resultsSubHeaderMain);
+
+						// update the highest page count if on the highest page
+						if(pageCount > highestPageCount){
+							highestPageCount = pageCount;
+						};
 
 						 
 					} else { // if no results create message
@@ -75,7 +100,9 @@ $(document).ready(function(){
 					}			
 				},
 				type: "GET"	
-		});
+			});
+
+		}		
 
 	}	
 
@@ -137,7 +164,7 @@ $(document).ready(function(){
  	//Build Message for top results header that show search items
  	function resultsHeader(searchTerm){
  		var resultsHeader = '<em>Dinosaurs</em> + <em>' + searchTerm + '</em>! What a great combo!';
- 		$('h1.resultsHeader').html(''); // cleass previous message
+ 		$('h1.resultsHeader').html(''); // clears previous message
  		return resultsHeader;
  	}
 
@@ -158,6 +185,11 @@ $(document).ready(function(){
  			$('div.resultsArea').html('');
  		}, 2000);
  		pageCount = 1;
+		searchWord = '';
+		totalPages = '';
+		pageDirection = '';
+		highestPageCount = '';
+		totalItems = '';
  	}
  	
  	// show next button if there are more than one page available
@@ -183,6 +215,29 @@ $(document).ready(function(){
 			$('li.prev').css('display', 'none');
 		}
 
+	}
+
+	// move results backward or forwards
+	function moveDinoResults(pageCount){
+
+		var oldPagePercent = pageCount*100,
+			newPagePercent = (pageCount-1)*100;
+
+		if(pageDirection == 'forward') {
+
+			$('.page' + (pageCount - 1)).css({transition: 'transform 2s linear', transform: 'translateX(-' + oldPagePercent + '%)'});
+			 
+			setTimeout( function(){ 
+				$('.page' + pageCount).css({transition: 'transform 2s linear', transform: 'translateX(-' + newPagePercent + '%)'});
+			}, 1000);
+
+		} else if (pageDirection == 'backward') {
+			$('.page' + (pageCount + 1)).css({transition: 'transform 2s linear', transform: 'translateX(' + newPagePercent + '%)'});
+
+			setTimeout( function(){ 
+				$('.page' + pageCount).css({transition: 'transform 2s linear', transform: 'translateX(-' + newPagePercent + '%)'});
+			}, 1000);
+		}
 	}
 
 
@@ -241,6 +296,7 @@ $(document).ready(function(){
 	$('li.next a').click(function(){
 		(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
 		++pageCount;
+		pageDirection = 'forward';
 		searchDinoStuff(searchWord);
 		console.log(pageCount);
 	});	
@@ -249,6 +305,7 @@ $(document).ready(function(){
 	$('li.prev a').click(function(){
 		(event.preventDefault) ? event.preventDefault() : event.returnValue = false;
 		--pageCount;
+		pageDirection = 'backward';
 		searchDinoStuff(searchWord);
 		console.log(pageCount);
 	});	
