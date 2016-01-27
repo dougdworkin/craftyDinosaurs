@@ -50,7 +50,7 @@ $(document).ready(function() {
                         if ((totalItems) > 0) {
                             // create result items on page
                             $('.searchContainer').css({ left: '-300%' });
-                            $('html, body').animate({ scrollTop: 0}, 'slow' );
+                            // $('html, body').animate({ scrollTop: 0}, 'slow' );
                             $('.resultsContainer').css({
                                 left: '0',
                                 display: 'block'
@@ -201,34 +201,22 @@ $(document).ready(function() {
         }
     // move results backward or forwards
     function moveDinoResults(pageCount) {
-            var oldPagePercent = pageCount * 100,
-                newPagePercent = (pageCount - 1) * 100;
-
+            var newPagePercent = (pageCount - 1) * 100;
+                
             // move forwards    
             if (pageDirection == 'forward') {
-                $('.page' + (pageCount - 1)).css({
-                    transition: 'transform 2s linear',
-                    transform: 'translateX(-' + oldPagePercent +'%)'
+                $('.resultsArea').css({
+                    transition: 'transform 1s ease-in-out',
+                    transform: 'translateX(-' + newPagePercent +'%)'
                 });
-                setTimeout(function() {
-                    $('.page' + pageCount).css({
-                        transition: 'transform 2s linear',
-                        transform: 'translateX(-' + newPagePercent + '%)'
-                    });
-                }, 10);
 
             // move backwards    
             } else if (pageDirection == 'backward') {
-                $('.page' + (pageCount + 1)).css({
-                    transition: 'transform 2s linear',
-                    transform: 'translateX(' + newPagePercent + '%)'
+                $('.resultsArea').css({
+                    transition: 'transform 1s ease-in-out',
+                    transform: 'translateX(-' + newPagePercent + '%)'
                 });
-                setTimeout(function() {
-                    $('.page' + pageCount).css({
-                        transition: 'transform 2s linear',
-                        transform: 'translateX(-' + newPagePercent + '%)'
-                    });
-                }, 10);
+  
             }
         }
     // set up click event for search buttons
