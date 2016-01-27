@@ -30,10 +30,10 @@ $(document).ready(function() {
                     etsyURL: 'https://openapi.etsy.com/v2/listings/active.js?keywords='
                 };
                 
-                // assign searchword variable a value so it's accessible to rest of functions	
+                // assign searchword variable a value so it's accessible to rest of functions   
                 searchWord = searchTerm;
                 
-                // send request to etsy	
+                // send request to etsy 
                 $.ajax({
                     url: searchRequest.etsyURL + searchRequest.terms +
                         "&limit=" + searchRequest.itemsPerpage +
@@ -98,7 +98,7 @@ $(document).ready(function() {
             }
         }
         
-    // Build the output	
+    // Build the output 
     function getSearchInfo(data) {
             var thumbnail = data.Images[0].url_170x135;
             var title = data.title;
@@ -116,7 +116,7 @@ $(document).ready(function() {
             return output;
         }
         
-    // Get a random work and place it in the search bar	
+    // Get a random work and place it in the search bar 
     function randWordFinder() {
             $.ajax({
                 url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=85000&maxCorpusCount=-1&minDictionaryCount=10&maxDictionaryCount=-1&minLength=3&maxLength=-1&limit=1&api_key=a6b702e895e72a81b452252cd67769286a06070437a481301',
@@ -142,7 +142,7 @@ $(document).ready(function() {
         
     //Build Message for top results header that show search items
     function resultsHeader(searchTerm) {
-                resultsHeaderText = '<em>Dinosaurs</em> + <em>' +
+                var resultsHeaderText = '<em>Dinosaurs</em> + <em>' +
                 searchTerm + '</em>! What a great combo!';
             $('h1.resultsHeader').html(''); // clears previous message
             return resultsHeaderText;
