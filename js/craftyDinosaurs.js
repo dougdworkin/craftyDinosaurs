@@ -176,21 +176,27 @@ $(document).ready(function() {
     function showNextButton(Pages) {
             if (Pages > 1) {
                 $('li.next').css('display', 'inline-block');
+                $('.rightArrow').css('display', 'block');
             } else {
                 $('li.next').css('display', 'none');
+                $('.rightArrow').css('display', 'none');
             }
             if (Pages == pageCount) {
                 $('li.next').css('display', 'none');
+                $('.rightArrow').css('display', 'none');
             } else {
                 $('li.next').css('display', 'inline-block');
+                $('.rightArrow').css('display', 'block');
             }
         }
     // show previous button if pages have been advanced
     function showPrevButton(Pages) {
             if (Pages > 1 && pageCount > 1) {
                 $('li.prev').css('display', 'inline-block');
+                 $('.leftArrow').css('display', 'block');
             } else {
                 $('li.prev').css('display', 'none');
+                $('.leftArrow').css('display', 'none');
             }
         }
     // move results backward or forwards
@@ -271,7 +277,7 @@ $(document).ready(function() {
     });
     
     // add count of one to page count and run search on next page
-    $('li.next a').click(function() {
+    $('li.next a, .rightArrow' ).click(function() {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         ++pageCount;
         pageDirection = 'forward';
@@ -279,7 +285,7 @@ $(document).ready(function() {
     });
     
     // subtract one from page count and run search on that page
-    $('li.prev a').click(function() {
+    $('li.prev a, .leftArrow').click(function() {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         --pageCount;
         pageDirection = 'backward';
