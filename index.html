@@ -29,100 +29,107 @@
 
         
         <div class="searchAndResults">
-            <div class="searchContainer">
-                <h2>Find hand crafted dino-related items from Etsy</h2>
+            
+            <div class="outerSearchContainer">
 
-                <div class="dinoImage"><img alt="Dinosaurs" src=
-                "images/dinoGroupDraft.png"></div>
+                <div class="searchContainer">
+                   <!--  <h2>Find hand crafted dino-related items from Etsy</h2>  removing this for now draft version-->
 
-                <div class="plus"><img alt="Plus" src=
-                "images/arrowDraft.png"></div>
+                    <div class="dinoImage"><img alt="Dinosaurs" src=
+                    "images/dinoGroupDraft.png"></div>
 
-                <div class="searchElements">
-                    <div class="searchbuttons">
-                        <ul class="searchList">
-                            <li class="searchButton" id="dinosaur">
-                                <a href="#">More Dinosaurs!</a>
-                            </li>
-                            <li class="searchButton" id="kids">
-                                <a href="#">Kids</a>
-                            </li>
-                            <li class="searchButton" id="holidays">
-                                <a href="#">Holidays</a>
-                            </li>
-                            <li class="searchButton" id="pets">
-                                <a href="#">Pets</a>
-                            </li>
-                            <li class="searchButton" id="dancing">
-                                <a href="#">Dancing</a>
-                            </li>
-                            <li class="searchButton" id="romance">
-                                <a href="#">Romance</a>
-                            </li>
-                            <li class="searchButton" id="hipsters">
-                                <a href="#">Hipsters</a>
-                            </li>
-                            <li class="searchButton" id="parties">
-                                <a href="">Parties</a>
-                            </li>
-                            <li class="searchButton" id="unicorns">
-                                <a href="">Unicorns</a>
-                            </li>
-                            <li class="searchButton" id="aliens">
-                                <a href="">SPACE ALIENS!</a>
-                            </li>
-                        </ul>
+                    <div class="plus"><img alt="Plus" src=
+                    "images/arrowDraft.png"></div>
+
+                    <div class="searchElements">
+                        <div class="searchbuttons">
+                            <ul class="searchList">
+                                <li class="searchButton" id="dinosaur">
+                                    <a href="#">More Dinosaurs!</a>
+                                </li>
+                                <li class="searchButton" id="kids">
+                                    <a href="#">Kids</a>
+                                </li>
+                                <li class="searchButton" id="holidays">
+                                    <a href="#">Holidays</a>
+                                </li>
+                                <li class="searchButton" id="pets">
+                                    <a href="#">Pets</a>
+                                </li>
+                                <li class="searchButton" id="dancing">
+                                    <a href="#">Dancing</a>
+                                </li>
+                                <li class="searchButton" id="romance">
+                                    <a href="#">Romance</a>
+                                </li>
+                                <li class="searchButton" id="hipsters">
+                                    <a href="#">Hipsters</a>
+                                </li>
+                                <li class="searchButton" id="parties">
+                                    <a href="">Parties</a>
+                                </li>
+                                <li class="searchButton" id="unicorns">
+                                    <a href="">Unicorns</a>
+                                </li>
+                                <li class="searchButton" id="aliens">
+                                    <a href="">SPACE ALIENS!</a>
+                                </li>
+                            </ul>
+                            <div class="clear"></div>
+                        </div><!-- close search buttons list -->
+
+                        <form id="dinoForm" name="dinoForm">
+                            <label class="search" for="customSearch">...or add your own
+                            dino-search word</label> <input id="customSearch" name=
+                            "customSearch" placeholder="i.e hot dogs" required="" type=
+                            "text"> <input id="seachSubmitButton" type="submit" value=
+                            "submit">
+                        </form>
+
+                        <div class="randomWordSearch">
+                            <button id="dinoRandom"><em>Need ideas?</em> Get a random
+                            word</button>
+                        </div>
+
                         <div class="clear"></div>
-                    </div><!-- close search buttons list -->
-
-                    <form id="dinoForm" name="dinoForm">
-                        <label class="search" for="customSearch">...or add your own
-                        dino-search word</label> <input id="customSearch" name=
-                        "customSearch" placeholder="i.e hot dogs" required="" type=
-                        "text"> <input id="seachSubmitButton" type="submit" value=
-                        "submit">
-                    </form>
-
-                    <div class="randomWordSearch">
-                        <button id="dinoRandom"><em>Need ideas?</em> Get a random
-                        word</button>
                     </div>
-
                     <div class="clear"></div>
-                </div>
-            </div><!-- End search container -->
 
+                </div><!-- End search container -->
+            </div> <!--end outer search container --> 
+
+        
             <div class="noResponseContainer">
                 <div class="noResponseMessage"></div>
             </div>
             
-          
-            <div class="resultsContainer">
-           
-                <div class="arrow leftArrow"><img src="images/arrowL01.svg" alt="Show previous"></div>
-                <div class="arrow rightArrow"><img src="images/arrowR01.svg" alt="Show next"></div>
-
-                <h1 class="resultsHeader"></h1>
-                <h2 class="resultsSubHeader"></h2>
-
+           <div class="outerResultsContainer">
+                <div class="resultsContainer">
                
-                <div class="carousel">         
-                    <div class="resultsArea"></div>
-                </div>
+                    <div class="arrow leftArrow"><img src="images/arrowL01.svg" alt="Show previous"></div>
+                    <div class="arrow rightArrow"><img src="images/arrowR01.svg" alt="Show next"></div>
+
+                    <h1 class="resultsHeader"></h1>
+                    <h2 class="resultsSubHeader"></h2>
+
+                   
+                    <div class="carousel">         
+                        <div class="resultsArea"></div>
+                    </div>
 
 
-                <div class="navButtons"> <!-- nav buttons -->
-                    <ul class="navButtonsList">
-                        <li><a class="restart" href="#">New Search</a></li>
-                        <li class="pagination prev"><a href="#">&lt; Prev</a></li>
-                        <li class="pagination next"><a href="#">Next &gt;</a></li>
-                    </ul>
-                </div>
+                    <div class="navButtons"> <!-- nav buttons -->
+                        <ul class="navButtonsList">
+                            <li><a class="restart" href="#">New Search</a></li>
+                            <li class="pagination prev"><a href="#">&lt; Prev</a></li>
+                            <li class="pagination next"><a href="#">Next &gt;</a></li>
+                        </ul>
+                    </div>
 
-                <div class="clear"></div>
-      
+                    <div class="clear"></div>
 
-            </div> <!-- end results container -->
+                </div> <!-- end results container -->
+            </div> <!--end outer results container -->    
 
         </div> <!-- end seacrhAndresults container   -->  
 

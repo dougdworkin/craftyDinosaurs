@@ -48,14 +48,10 @@ $(document).ready(function() {
                        
                         // look to see if there are any results and post them
                         if ((totalItems) > 0) {
-                            // create result items on page
-                            $('.searchContainer').css({ left: '-300%' });
+                            // move search to reults pages
+                            $('.searchAndResults').css({ transform: 'translateX(-100%)' });
                             // $('html, body').animate({ scrollTop: 0}, 'slow' );
-                            $('.resultsContainer').css({
-                                left: '0',
-                                display: 'block'
-                            });
-                            
+                                                
                             // create the new results div
                             $('.resultsArea').append(
                                 '<div class="output page' + pageCount + '"></div>');
@@ -116,7 +112,7 @@ $(document).ready(function() {
             return output;
         }
         
-    // Get a random work and place it in the search bar 
+    // Get a random word and place it in the search bar 
     function randWordFinder() {
             $.ajax({
                 url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&includePartOfSpeech=noun&minCorpusCount=85000&maxCorpusCount=-1&minDictionaryCount=10&maxDictionaryCount=-1&minLength=3&maxLength=-1&limit=1&api_key=a6b702e895e72a81b452252cd67769286a06070437a481301',
@@ -158,9 +154,8 @@ $(document).ready(function() {
     // reset and restart search
     function restartSearch() {
             $('#customSearch').val('');
-            $('.resultsContainer').css({ left: '200%' });
+            $('.searchAndResults').css({ transform: 'translateX(0)' });
             $('html, body').animate({ scrollTop: 0 }, 'slow');
-            $('.searchContainer').css({ left: '0' });
             setTimeout(function() {
                 $('div.resultsArea').html('');
             }, 2000);
