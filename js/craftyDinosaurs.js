@@ -48,10 +48,7 @@ $(document).ready(function() {
                        
                         // look to see if there are any results and post them
                         if ((totalItems) > 0) {
-                            // move search to reults pages
-                            $('.searchAndResults').css({ transform: 'translateX(-100%)' });
-                            // $('html, body').animate({ scrollTop: 0}, 'slow' );
-                                                
+
                             // create the new results div
                             $('.resultsArea').append(
                                 '<div class="output page' + pageCount + '"></div>');
@@ -61,6 +58,10 @@ $(document).ready(function() {
                                 var output = getSearchInfo(item);
                                 $('.page' + pageCount).append(output);
                             });
+
+                           // move search to reults pages
+                            $('.searchAndResults').css({ transform: 'translateX(-100%)' });
+                                                                    
                             
                             // move to the new results page on screen
                             moveDinoResults(pageCount);
