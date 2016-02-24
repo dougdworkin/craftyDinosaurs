@@ -18,6 +18,7 @@ $(document).ready(function() {
                 $('h2.resultsSubHeader').append(resultsSubHeaderMain); // append page #
                 showNextButton(totalPages); // show next button if more items
                 showPrevButton(totalPages); // show prev button if pages have been advanced
+                history.pushState(pageCount, 'Page'+ pageCount, '/dinos_plus_' + searchWord + '_' + pageCount + '.html');
             
                 
             } else { // if pages has not been created then create a new results page
@@ -61,6 +62,8 @@ $(document).ready(function() {
 
                            // move search to reults pages
                             $('.searchAndResults').css({ transform: 'translateX(-145%)' });
+
+                            history.pushState(pageCount, 'Page'+ pageCount, '/dinos_plus_' + searchWord + '_' + pageCount + '.html');
                                                                     
                             
                             // move to the new results page on screen
