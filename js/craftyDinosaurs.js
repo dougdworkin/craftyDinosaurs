@@ -5,8 +5,8 @@ $(document).ready(function() {
         pageDirection = '',
         highestPageCount = '',
         totalItems = '',
-        resultsSubHeaderMain,
-        resultsHeaderMain;
+        resultsHeaderMain,
+        resultsSubHeaderMain;
         
     // send search request
     function searchDinoStuff(searchTerm) {
@@ -60,7 +60,7 @@ $(document).ready(function() {
                             });
 
                            // move search to reults pages
-                            $('.searchAndResults').css({ transform: 'translateX(-100%)' });
+                            $('.searchAndResults').css({ transform: 'translateX(-145%)' });
                                                                     
                             
                             // move to the new results page on screen
