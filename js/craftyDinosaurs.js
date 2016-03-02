@@ -1,24 +1,47 @@
 $(document).ready(function() {
     var pageCount = 1,
         searchWord = '',
-        totalPages = '',
+        totalPages,
         pageDirection = '',
         highestPageCount = '',
-        totalItems = '',
-        resultsHeaderMain,
-        resultsSubHeaderMain;
+        totalItems = 0,
+        homepageHash = '';
+
+ 
         
+        window.onpopstate = function(event) {
+          console.log("location: ", document.location , ", state: " , event);
+          var historyPage = document.location.hash.split('/')[2],
+              historyCategory = document.location.hash.split('/')[1];
+          if(location.hash == '' ){
+              restartSearch();
+              homepageHash = "onHomePage";  // set flag on homepage
+          } else if (homepageHash == "onHomePage" && historyCategory!='') {
+            console.log(historyCategory);
+            homepageHash = '';
+            searchDinoStuff(historyCategory); 
+          } else {   
+              moveDinoResults(historyPage);
+              pageCount = historyPage; 
+              showSubHeader(totalPages);
+              showNextButton(totalPages); 
+              showPrevButton(totalPages);  
+           }     
+
+        };
+
     // send search request
     function searchDinoStuff(searchTerm) {
         
             //check if the results page has been already created
             if (pageCount <= highestPageCount) {
                 moveDinoResults(pageCount); // move the results forward or backwards
-                resultsSubHeaderMain = resultsSubHeader(totalItems); // show what page you are on
-                $('h2.resultsSubHeader').append(resultsSubHeaderMain); // append page #
+                console.log("first part of if for searchDinoStuff");
+                showSubHeader(totalPages);
                 showNextButton(totalPages); // show next button if more items
                 showPrevButton(totalPages); // show prev button if pages have been advanced
-                history.pushState(pageCount, 'Page'+ pageCount, '/dinos_plus_' + searchWord + '_' + pageCount + '.html');
+                // history.pushState(pageCount, 'Page ' + pageCount, '?category=' + encodeURIComponent( searchTerm ) + '&page' + encodeURIComponent( pageCount ));
+                history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
             
                 
             } else { // if pages has not been created then create a new results page
@@ -44,46 +67,36 @@ $(document).ready(function() {
                     dataType: "jsonp",
                     success: function(data) {
 
-                        var totalItems = data.count,
-                            itemsPerpage = searchRequest.itemsPerpage;
+                        var totalItems = data.count;
+                        
+                        totalPages = Math.ceil(totalItems/searchRequest.itemsPerpage);
                        
                         // look to see if there are any results and post them
                         if ((totalItems) > 0) {
 
-                            // create the new results div
-                            $('.resultsArea').append(
-                                '<div class="output page' + pageCount + '"></div>');
-                            
-                            // loop through results and create all the items
-                            $.each(data.results, function(i,item) {
-                                var output = getSearchInfo(item);
-                                $('.page' + pageCount).append(output);
-                            });
-
+                           makeResultsPage(data.results);
+                     
                            // move search to reults pages
-                            $('.searchAndResults').css({ transform: 'translateX(-145%)' });
+                           $('.searchAndResults').css({ transform: 'translateX(-145%)' });
 
-                            history.pushState(pageCount, 'Page'+ pageCount, '/dinos_plus_' + searchWord + '_' + pageCount + '.html');
-                                                                    
+                           history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
+                                                                
+                           // move to the new results page on screen
+                           moveDinoResults(pageCount);
                             
-                            // move to the new results page on screen
-                            moveDinoResults(pageCount);
-                            
-                            //set up show next  & prev buttons
-                            totalPages = Math.ceil(totalItems/itemsPerpage);
-                            showNextButton(totalPages); // show next button if more items
-                            showPrevButton(totalPages); // show prev button if pages have been advanced
+                           //set up show next  & prev buttons
+                           showNextButton(totalPages); // show next button if more items
+                           showPrevButton(totalPages); // show prev button if pages have been advanced
                             
                             //create headers for the results page
-                            resultsHeaderMain = resultsHeader(searchTerm); // show items searched
-                            $('h1.resultsHeader').append(resultsHeaderMain);
-                            resultsSubHeaderMain = resultsSubHeader(totalItems); // show what page you are on
-                            $('h2.resultsSubHeader').append(resultsSubHeaderMain);
-                                
-                            // update the highest page count if on the highest page
-                            if (pageCount > highestPageCount) {
+                           showMainHeader(searchTerm);
+                           showSubHeader(totalPages);
+                           
+                           // update the highest page count if on the highest page
+                           if (pageCount > highestPageCount) {
                                 highestPageCount = pageCount;
-                            }
+                           }
+     
 
                         } else { // if no results create message
                             $('.noResponseContainer').fadeIn('400', function() {
@@ -138,8 +151,19 @@ $(document).ready(function() {
                 '<p><a href="#">In the meantime you can still <span>' +
                 'look for other dino-products</span></a></p>';
             return noDinoProducts;
-        }
+    }
+
+    function makeResultsPage(data){    
+        // create the new results div
+        $('.resultsArea').append('<div class="output page' + pageCount + '"></div>');
         
+        // loop through results and create all the items
+        $.each(data, function(i,item) {
+            var output = getSearchInfo(item);
+            $('.page' + pageCount).append(output);
+        });
+     }
+
     //Build Message for top results header that show search items
     function resultsHeader(searchTerm) {
                 var resultsHeaderText = '<em>Dinosaurs</em> + <em>' +
@@ -148,13 +172,28 @@ $(document).ready(function() {
             return resultsHeaderText;
         }
         
+   
+
+    //Show mainheader on page
+    function showMainHeader(searchTerm) {
+            var resultsHeaderMain = resultsHeader(searchTerm); // show items searched
+            $('h1.resultsHeader').append(resultsHeaderMain);    
+    }   
+
+    //Show subheader on page
+    function showSubHeader(allThePages){
+            var resultsSubHeaderMain = resultsSubHeader(allThePages); // show what page you are on
+            $('h2.resultsSubHeaders').append(resultsSubHeaderMain); // append page #
+     }  
+
     //Build message for results subheader that shows current page
     function resultsSubHeader(count) {
             var subheader = "(page <em>" + pageCount + "</em> of <em>" +
-                totalPages + "</em>)"; //"There are " + count + " of these made." +
-            $('h2.resultsSubHeader').html(''); // clears previous message
+                count + "</em>)"; //"There are " + count + " of these made." +
+            $('h2.resultsSubHeaders').html(''); // clears previous message
             return subheader;
-        }
+     }
+
     // reset and restart search
     function restartSearch() {
             $('#customSearch').val('');
@@ -278,4 +317,22 @@ $(document).ready(function() {
         pageDirection = 'backward';
         searchDinoStuff(searchWord);
     });
+
+
+    var state = document.location.hash;
+    if ( /^#\/.+\//.test( state )) {
+        var searchCategory = document.location.hash.split('/')[1], 
+        searchPageNumber = document.location.hash.split('/')[2];
+        pageDirection = 'forward';
+        for (i=1; i <= searchPageNumber; i++){
+            var pageCount = i; 
+            searchDinoStuff(searchCategory);
+            console.log(i);
+           }
+   
+    }
+
+
 });
+
+
