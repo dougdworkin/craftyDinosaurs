@@ -98,11 +98,7 @@ $(document).ready(function() {
      
 
                         } else { // if no results create message
-                            $('.noResponseContainer').fadeIn('400', function() {
-                                    var noDinoProductsMessage = buildMessageNoProducts(searchTerm);
-                                    $('.noResponseMessage').append(noDinoProductsMessage);
-                                    $('.noResponseMessage').css('top','70px');
-                                });
+                            dropErrorMessage(buildMessageNoProducts(searchTerm));
                         }
                     },
                     type: "GET"
@@ -150,6 +146,24 @@ $(document).ready(function() {
                 '<p><a href="#">In the meantime you can still <span>' +
                 'look for other dino-products</span></a></p>';
             return noDinoProducts;
+    }
+
+    //Build the message for only one search term
+    function buildMessageNoTwoSearches(textBoxSearch) {
+            var noTwoSearchTerms =
+                '<p>Sorry we can\'t do a search from the search box AND ' +
+                'do a search from the buttons. Please delete <em>' + textBoxSearch + 
+                '</em> as your search term before pressing <em>' +SearchTerm + '</em> ' +
+                ' or press the submit button to use <em>' + textBoxSearch +'</em>'
+                '</p>';
+            return noTwoSearchTerms;
+    }
+
+    function dropErrorMessage(errorMessage){
+       $('.noResponseContainer').fadeIn('400', function() {
+           $('.noResponseMessage').append(errorMessage);
+           $('.noResponseMessage').css('top','70px');
+       });
     }
 
     function makeResultsPage(data){    
@@ -271,7 +285,9 @@ $(document).ready(function() {
         // otherwise dont do the search
         } else { // if custom search has a value then dont let the button work
             event.preventDefault();
-            console.log('full -TBD -  create a message for this'); // SET UP SCRIPT FOR THIS
+            SearchTerm = $(this).attr('id');
+            var nosearchMessage = buildMessageNoTwoSearches($('#customSearch').val())
+            dropErrorMessage(nosearchMessage);
         }
     }); // end click button functions
     
