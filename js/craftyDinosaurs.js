@@ -140,7 +140,7 @@ $(document).ready(function() {
     //Build the message for no items found in etsy
     function buildMessageNoProducts(searchTerm) {
             var noDinoProducts =
-                '<p>No one is makeing any crafts that are combine' +
+                '<p>No one is making any crafts that are combine' +
                 ' <em>dinosaurs</em> with <em>' + searchTerm +
                 '</em>. This might be a good market for you to start!</p>' +
                 '<p><a href="#">In the meantime you can still <span>' +
