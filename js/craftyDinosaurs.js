@@ -40,7 +40,6 @@ $(document).ready(function() {
                 showSubHeader(totalPages);
                 showNextButton(totalPages); // show next button if more items
                 showPrevButton(totalPages); // show prev button if pages have been advanced
-                // history.pushState(pageCount, 'Page ' + pageCount, '?category=' + encodeURIComponent( searchTerm ) + '&page' + encodeURIComponent( pageCount ));
                 history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
             
                 
@@ -155,13 +154,15 @@ $(document).ready(function() {
 
     function makeResultsPage(data){    
         // create the new results div
-        $('.resultsArea').append('<div class="output page' + pageCount + '"></div>');
+        var outPutContainer = $('<div class="output"></div>');
         
         // loop through results and create all the items
         $.each(data, function(i,item) {
             var output = getSearchInfo(item);
-            $('.page' + pageCount).append(output);
+            outPutContainer.append(output);
         });
+
+        $('.resultsArea').append(outPutContainer);
      }
 
     //Build Message for top results header that show search items
@@ -197,10 +198,11 @@ $(document).ready(function() {
     // reset and restart search
     function restartSearch() {
             $('#customSearch').val('');
-            $('.searchAndResults').css({ transform: 'translateX(0)' });
+            $('.searchAndResults').css({ transform: 'translateX(0%)' });
             $('html, body').animate({ scrollTop: 0 }, 'slow');
             setTimeout(function() {
                 $('div.resultsArea').html('');
+                $('.resultsArea').css({transform: 'translateX(0%)'});
             }, 2000);
             pageCount = 1;
             searchWord = '';
@@ -208,7 +210,9 @@ $(document).ready(function() {
             pageDirection = '';
             highestPageCount = '';
             totalItems = '';
-        }
+            history.pushState("Welcome", 'Welcome', 'index.html');
+
+       }
         
     // show next button if there are more than one page available
     function showNextButton(Pages) {
