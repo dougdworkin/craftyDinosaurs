@@ -347,7 +347,10 @@ $(document).ready(function() {
         for (i=1; i <= searchPageNumber; i++){
             var pageCount = i; 
             searchDinoStuff(searchCategory);
-            console.log(i);
+            console.log(totalPages);
+                if (i > totalPages) {
+                    return;
+                }
            }
    
     }
