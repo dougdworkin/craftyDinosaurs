@@ -34,16 +34,15 @@ $(document).ready(function() {
     function searchDinoStuff(searchTerm) {
         
             //check if the results page has been already created
-            if (pageCount <= highestPageCount) {
-                moveDinoResults(pageCount); // move the results forward or backwards
-                console.log("first part of if for searchDinoStuff");
-                showSubHeader(totalPages);
-                showNextButton(totalPages); // show next button if more items
-                showPrevButton(totalPages); // show prev button if pages have been advanced
-                history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
+            // if (pageCount <= highestPageCount) {
+            //     moveDinoResults(pageCount); // move the results forward or backwards
+            //     showSubHeader(totalPages);
+            //     showNextButton(totalPages); // show next button if more items
+            //     showPrevButton(totalPages); // show prev button if pages have been advanced
+            //     history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
             
                 
-            } else { // if pages has not been created then create a new results page
+            // } else { // if pages has not been created then create a new results page
                 // set up variables
                 var searchRequest = {
                     api_key: 'q0r7ycz3zozftljmhx1yag8b',
@@ -103,7 +102,7 @@ $(document).ready(function() {
                     },
                     type: "GET"
                 });
-            }
+            
         }
         
     // Build the output 
@@ -166,9 +165,11 @@ $(document).ready(function() {
        });
     }
 
-    function makeResultsPage(data){    
+    function makeResultsPage(data){
+
+        $('.output.new').removeClass('new').addClass('current');
         // create the new results div
-        var outPutContainer = $('<div class="output"></div>');
+        var outPutContainer = $('<div class="output new"></div>');
         
         // loop through results and create all the items
         $.each(data, function(i,item) {
@@ -258,22 +259,65 @@ $(document).ready(function() {
     // move results backward or forwards
     function moveDinoResults(pageCount) {
             var newPagePercent = (pageCount - 1) * 100;
+
+            if (!((pageCount == 1)&&(pageDirection == 'forward'))){
                 
             // move forwards    
-            if (pageDirection == 'forward') {
-                $('.resultsArea').css({
-                    transition: 'transform 1s ease-in-out',
-                    transform: 'translateX(-' + newPagePercent +'%)'
-                });
+                if (pageDirection == 'forward') {
+                    $('.output.new').addClass('preResult');
+               
+                    $('.output.current').animate({
+                        marginLeft: '-100%' 
+                        }, 2000, 'linear', 
+                        function(){
+                            $('.output.current').remove();
+                        }
+                    );
 
-            // move backwards    
-            } else if (pageDirection == 'backward') {
-                $('.resultsArea').css({
-                    transition: 'transform 1s ease-in-out',
-                    transform: 'translateX(-' + newPagePercent + '%)'
-                });
-  
-            }
+                    // $('.output.new').css({
+                    //     "transition": 'transform 2s ease-in-out',
+                    //     "transform": 'translateX(0)'
+                    // });
+
+
+                // move backwards    
+                } else if (pageDirection == 'backward') {
+                    // $('.resultsArea').css({
+                    //     transition: 'transform 1s ease-in-out',
+                    //     transform: 'translateX(-' + newPagePercent + '%)'
+                    // });
+                // $('.output.new').addClass('postResult');
+
+                var newOutput = $('.output.new');
+
+                newOutput.parent().prepend(newOutput);
+
+                // newOutput.css('transform', 'translateX(-100%)');
+
+                newOutput.css('margin-left', '-100%');
+
+                 newOutput.animate({
+                        marginLeft: '0%' 
+                        }, 2000, 'linear', 
+                        function(){
+                            $('.output.current').remove();
+                        }
+                    );
+
+                  // $('.output.new').animate({
+                  //       transform: 'translateX(0)'
+                  //       }, 2000, 'linear'
+                  //      );
+
+                   // $('.output.new').css({
+                   //      "transition": 'transform 2s ease-in-out',
+                   //      "transform": 'translateX(0)'
+                   //  });
+
+
+      
+                }
+            }    
         }
     // set up click event for search buttons
     $('li.searchButton').click(function() {
