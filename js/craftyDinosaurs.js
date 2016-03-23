@@ -13,6 +13,15 @@ $(document).ready(function() {
           console.log("location: ", document.location , ", state: " , event);
           var historyPage = document.location.hash.split('/')[2],
               historyCategory = document.location.hash.split('/')[1];
+
+          // if (pageCount <= historyPage) {
+          //   pageDirection = "forward";
+          //    }  else if (pageCount >= historyPage) {
+          //   pageDirection = "backward";
+          // }
+
+          console.log( 'pageCount: ' + pageCount + ' historyPage: ' + historyPage );
+                
           if(location.hash == '' ){
               restartSearch();
               homepageHash = "onHomePage";  // set flag on homepage
@@ -20,12 +29,14 @@ $(document).ready(function() {
             console.log(historyCategory);
             homepageHash = '';
             searchDinoStuff(historyCategory); 
-          } else {   
-              moveDinoResults(historyPage);
-              pageCount = historyPage; 
-              showSubHeader(totalPages);
-              showNextButton(totalPages); 
-              showPrevButton(totalPages);  
+          } else { 
+            if(pageDirection == 'forwards'){
+                // pageCount = pageCount + 1;
+              } else {
+                // pageCount = pageCount - 1;
+              }
+            searchDinoStuff(historyCategory);
+
            }     
 
         };
@@ -33,18 +44,7 @@ $(document).ready(function() {
     // send search request
     function searchDinoStuff(searchTerm) {
         
-            //check if the results page has been already created
-            // if (pageCount <= highestPageCount) {
-            //     moveDinoResults(pageCount); // move the results forward or backwards
-            //     showSubHeader(totalPages);
-            //     showNextButton(totalPages); // show next button if more items
-            //     showPrevButton(totalPages); // show prev button if pages have been advanced
-            //     history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
-            
-                
-            // } else { // if pages has not been created then create a new results page
-                // set up variables
-                var searchRequest = {
+                    var searchRequest = {
                     api_key: 'q0r7ycz3zozftljmhx1yag8b',
                     terms: searchTerm + ', dinosaur',
                     itemsPerpage: '6',
@@ -78,6 +78,7 @@ $(document).ready(function() {
                            $('.searchAndResults').css({ transform: 'translateX(-145%)' });
 
                            history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
+                           
                                                                 
                            // move to the new results page on screen
                            moveDinoResults(pageCount);
@@ -91,9 +92,9 @@ $(document).ready(function() {
                            showSubHeader(totalPages);
                            
                            // update the highest page count if on the highest page
-                           if (pageCount > highestPageCount) {
-                                highestPageCount = pageCount;
-                           }
+                           // if (pageCount > highestPageCount) {
+                           //      highestPageCount = pageCount;
+                           // }
      
 
                         } else { // if no results create message
@@ -258,9 +259,9 @@ $(document).ready(function() {
         }
     // move results backward or forwards
     function moveDinoResults(pageCount) {
-            var newPagePercent = (pageCount - 1) * 100;
+            // var newPagePercent = (pageCount - 1) * 100;
 
-            if (!((pageCount == 1)&&(pageDirection == 'forward'))){
+            // if (!((pageCount == 1)&&(pageDirection == 'forward'))){
                 
             // move forwards    
                 if (pageDirection == 'forward') {
@@ -274,20 +275,10 @@ $(document).ready(function() {
                         }
                     );
 
-                    // $('.output.new').css({
-                    //     "transition": 'transform 2s ease-in-out',
-                    //     "transform": 'translateX(0)'
-                    // });
-
 
                 // move backwards    
                 } else if (pageDirection == 'backward') {
-                    // $('.resultsArea').css({
-                    //     transition: 'transform 1s ease-in-out',
-                    //     transform: 'translateX(-' + newPagePercent + '%)'
-                    // });
-                // $('.output.new').addClass('postResult');
-
+     
                 var newOutput = $('.output.new');
 
                 newOutput.parent().prepend(newOutput);
@@ -303,22 +294,10 @@ $(document).ready(function() {
                             $('.output.current').remove();
                         }
                     );
-
-                  // $('.output.new').animate({
-                  //       transform: 'translateX(0)'
-                  //       }, 2000, 'linear'
-                  //      );
-
-                   // $('.output.new').css({
-                   //      "transition": 'transform 2s ease-in-out',
-                   //      "transform": 'translateX(0)'
-                   //  });
-
-
-      
+     
                 }
             }    
-        }
+        // }
     // set up click event for search buttons
     $('li.searchButton').click(function() {
         // run search function from button if custom search firls is empty
