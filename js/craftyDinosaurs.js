@@ -31,6 +31,11 @@ $(document).ready(function() {
             searchDinoStuff(historyCategory); 
           } else { 
             //set page direction to correct value
+            if (historyPage<pageCount){
+                    pageDirection='backward';
+                } else {
+                    pageDirection = 'forward';
+                }
             pageCount = historyPage;  
             searchDinoStuff(historyCategory, false);
 
@@ -375,7 +380,7 @@ $(document).ready(function() {
 
         pageCount = searchPageNumber;  
             // searchDinoStuff(historyCategory);
-            searchDinoStuff(historyCategory);
+            searchDinoStuff(searchCategory);
    
     }
 
