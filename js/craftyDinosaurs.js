@@ -30,19 +30,18 @@ $(document).ready(function() {
             homepageHash = '';
             searchDinoStuff(historyCategory); 
           } else { 
-            if(pageDirection == 'forwards'){
-                // pageCount = pageCount + 1;
-              } else {
-                // pageCount = pageCount - 1;
-              }
-            searchDinoStuff(historyCategory);
+            //set page direction to correct value
+            pageCount = historyPage;  
+            searchDinoStuff(historyCategory, false);
 
            }     
 
         };
 
     // send search request
-    function searchDinoStuff(searchTerm) {
+    function searchDinoStuff(searchTerm, keepHistory) {
+
+           keepHistory = keepHistory!== false;
         
                     var searchRequest = {
                     api_key: 'q0r7ycz3zozftljmhx1yag8b',
@@ -75,10 +74,13 @@ $(document).ready(function() {
                            makeResultsPage(data.results);
                      
                            // move search to reults pages
-                           $('.searchAndResults').css({ transform: 'translateX(-145%)' });
+                          $('.searchAndResults').css({ transform: 'translateX(-145%)' });
 
+
+
+                        if(keepHistory) {
                            history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
-                           
+                         }                       
                                                                 
                            // move to the new results page on screen
                            moveDinoResults(pageCount);
@@ -213,6 +215,9 @@ $(document).ready(function() {
 
     // reset and restart search
     function restartSearch() {
+            $('.animate-forward').addClass('hide');
+            $('.animate-backwards').removeClass('hide');
+
             $('#customSearch').val('');
             $('.searchAndResults').css({ transform: 'translateX(0%)' });
             $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -367,14 +372,10 @@ $(document).ready(function() {
         var searchCategory = document.location.hash.split('/')[1], 
         searchPageNumber = document.location.hash.split('/')[2];
         pageDirection = 'forward';
-        for (i=1; i <= searchPageNumber; i++){
-            var pageCount = i; 
-            searchDinoStuff(searchCategory);
-            console.log(totalPages);
-                if (i > totalPages) {
-                    return;
-                }
-           }
+
+        pageCount = searchPageNumber;  
+            // searchDinoStuff(historyCategory);
+            searchDinoStuff(historyCategory);
    
     }
 
