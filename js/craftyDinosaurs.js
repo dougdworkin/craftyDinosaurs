@@ -73,6 +73,11 @@ $(document).ready(function() {
                         
                         totalPages = Math.ceil(totalItems/searchRequest.itemsPerpage);
                        
+                       if (totalPages < pageCount){
+                              pageCount = totalPages;
+                              searchDinoStuff(searchTerm);
+                       }
+
                         // look to see if there are any results and post them
                         if ((totalItems) > 0) {
 
@@ -377,11 +382,8 @@ $(document).ready(function() {
         var searchCategory = document.location.hash.split('/')[1], 
         searchPageNumber = document.location.hash.split('/')[2];
         pageDirection = 'forward';
-
         pageCount = searchPageNumber;  
-            // searchDinoStuff(historyCategory);
-            searchDinoStuff(searchCategory);
-   
+        searchDinoStuff(searchCategory); 
     }
 
 
