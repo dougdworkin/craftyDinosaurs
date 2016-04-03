@@ -14,12 +14,6 @@ $(document).ready(function() {
           var historyPage = document.location.hash.split('/')[2],
               historyCategory = document.location.hash.split('/')[1];
 
-          // if (pageCount <= historyPage) {
-          //   pageDirection = "forward";
-          //    }  else if (pageCount >= historyPage) {
-          //   pageDirection = "backward";
-          // }
-
           console.log( 'pageCount: ' + pageCount + ' historyPage: ' + historyPage );
                 
           if(location.hash == '' ){
@@ -73,9 +67,13 @@ $(document).ready(function() {
                         
                         totalPages = Math.ceil(totalItems/searchRequest.itemsPerpage);
                        
+                       console.log(pageDirection);
+                       
+                       // check if requesting a page is greater than total pages available
+                       // and, if so, go to last page available
                        if (totalPages < pageCount){
-                              pageCount = totalPages;
-                              searchDinoStuff(searchTerm);
+                            pageCount = totalPages;
+                            searchDinoStuff(searchTerm, false);
                        }
 
                         // look to see if there are any results and post them
