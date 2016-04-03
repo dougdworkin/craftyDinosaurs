@@ -5,7 +5,9 @@ $(document).ready(function() {
         pageDirection = '',
         highestPageCount = '',
         totalItems = 0,
-        homepageHash = '';
+        homepageHash = '',
+        forwardClickOk = true,
+        backwardClickOk = true;
 
  
         
@@ -85,7 +87,7 @@ $(document).ready(function() {
                           $('.searchAndResults').css({ transform: 'translateX(-145%)' });
 
 
-
+                        // push history state to browser    
                         if(keepHistory) {
                            history.pushState(pageCount, 'Page'+ pageCount, '#/' + encodeURIComponent( searchTerm ) + '/' + encodeURIComponent( pageCount ));
                          }                       
@@ -96,15 +98,16 @@ $(document).ready(function() {
                            //set up show next  & prev buttons
                            showNextButton(totalPages); // show next button if more items
                            showPrevButton(totalPages); // show prev button if pages have been advanced
-                            
+
+            
                             //create headers for the results page
                            showMainHeader(searchTerm);
                            showSubHeader(totalPages);
+
+                           //turn forward and backward click functionaility back on 
+                           forwardClickOk = true;
+                           backwardClickOk = true;
                            
-                           // update the highest page count if on the highest page
-                           // if (pageCount > highestPageCount) {
-                           //      highestPageCount = pageCount;
-                           // }
      
 
                         } else { // if no results create message
@@ -361,20 +364,28 @@ $(document).ready(function() {
     // add count of one to page count and run search on next page
     $('li.next a, .rightArrow' ).click(function() {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
-        ++pageCount;
-        pageDirection = 'forward';
-        searchDinoStuff(searchWord);
+        if(forwardClickOk == true){
+            forwardClickOk = false;
+            ++pageCount;
+            pageDirection = 'forward';
+            searchDinoStuff(searchWord);
+    }
+                            
     });
     
     // subtract one from page count and run search on that page
     $('li.prev a, .leftArrow').click(function() {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
-        --pageCount;
-        pageDirection = 'backward';
-        searchDinoStuff(searchWord);
+        if(backwardClickOk == true){
+            backwardClickOk = false;
+            --pageCount;
+            pageDirection = 'backward';
+            searchDinoStuff(searchWord);
+        }    
     });
 
-
+    // check if URL entered already had search criteria (such as bookmark)
+    // and, if so, go to that page of results
     var state = document.location.hash;
     if ( /^#\/.+\//.test( state )) {
         var searchCategory = document.location.hash.split('/')[1], 
