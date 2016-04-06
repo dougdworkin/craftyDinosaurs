@@ -235,7 +235,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 $('div.resultsArea').html('');
                 $('.resultsArea').css({transform: 'translateX(0%)'});
-            }, 2000);
+            }, 10000);
             pageCount = 1;
             searchWord = '';
             totalPages = '';
