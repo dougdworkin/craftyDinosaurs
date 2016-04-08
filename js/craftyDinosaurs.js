@@ -24,7 +24,7 @@ $(document).ready(function() {
           } else if (homepageHash == "onHomePage" && historyCategory!='') {
             console.log(historyCategory);
             homepageHash = '';
-            searchDinoStuff(historyCategory); 
+            searchDinoStuff(historyCategory); // parameter 
           } else { 
             //set page direction to correct value
             if (historyPage<pageCount){
@@ -42,6 +42,7 @@ $(document).ready(function() {
     // send search request
     function searchDinoStuff(searchTerm, keepHistory) {
 
+           // keep history as true unless false is passed in
            keepHistory = keepHistory!== false;
         
                     var searchRequest = {
@@ -377,7 +378,7 @@ $(document).ready(function() {
     $('li.prev a, .leftArrow').click(function() {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         if(backwardClickOk == true){
-            backwardClickOk = false;
+            backwardClickOk = false; // make one variable backward and forward
             --pageCount;
             pageDirection = 'backward';
             searchDinoStuff(searchWord);
