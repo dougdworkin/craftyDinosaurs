@@ -16,7 +16,7 @@ $(document).ready(function() {
           var historyPage = document.location.hash.split('/')[2],
               historyCategory = document.location.hash.split('/')[1];
 
-          console.log( 'pageCount: ' + pageCount + ' historyPage: ' + historyPage );
+          // console.log( 'pageCount: ' + pageCount + ' historyPage: ' + historyPage );
                 
           if(location.hash == '' ){
               restartSearch();
@@ -70,7 +70,7 @@ $(document).ready(function() {
                         
                         totalPages = Math.ceil(totalItems/searchRequest.itemsPerpage);
                        
-                       console.log(pageDirection);
+                       // console.log(pageDirection);
                        
                        // check if requesting a page is greater than total pages available
                        // and, if so, go to last page available
@@ -85,6 +85,7 @@ $(document).ready(function() {
                            makeResultsPage(data.results);
                      
                            // move search to reults pages
+                          $('#canvas').removeClass('flip'); 
                           $('.searchAndResults').css({ transform: 'translateX(-145%)' });
 
 
