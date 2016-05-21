@@ -317,7 +317,7 @@ $(document).ready(function() {
     $('li.searchButton').click(function(event) {
         // run search function from button if custom search firls is empty
         if (!($('#customSearch').val())) {
-            event.preventDefault();
+            (event.preventDefault) ? event.preventDefault():event.returnValue = false;
             var dinoSearchTerm = $(this).attr('id');
             searchDinoStuff(dinoSearchTerm);
         // otherwise dont do the search
@@ -331,7 +331,7 @@ $(document).ready(function() {
     
     // set up event for custom search term
     $('#dinoForm').submit(function(event) {
-        event.preventDefault();
+        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         var dinoSearchTerm = $('#customSearch').val();
         searchDinoStuff(dinoSearchTerm);
     }); // end custom search function
@@ -351,18 +351,18 @@ $(document).ready(function() {
     
     // prevent default when no response button is clicked 
     $('.noResponseContainer a').click(function(event) {
-        event.preventDefault();
+        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
     });
     
     //set up click event for "restart" button
     $('a.restart').click(function(event) {
-        event.preventDefault();
+        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         restartSearch();
     });
     
     // add count of one to page count and run search on next page
     $('li.next a, .rightArrow' ).click(function(event) {
-        event.preventDefault();
+        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         if(forwardClickOk === true){
             forwardClickOk = false;
             ++pageCount;
@@ -374,7 +374,7 @@ $(document).ready(function() {
     
     // subtract one from page count and run search on that page
     $('li.prev a, .leftArrow').click(function(event) {
-        event.preventDefault();
+        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         if(backwardClickOk === true){
             backwardClickOk = false; // make one variable backward and forward
             --pageCount;
