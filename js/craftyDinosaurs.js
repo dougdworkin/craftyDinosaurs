@@ -317,7 +317,7 @@ $(document).ready(function() {
             }    
         // }
     // set up click event for search buttons
-    $('li.searchButton').click(function() {
+    $('li.searchButton').click(function(event) {
         // run search function from button if custom search firls is empty
         if (!($('#customSearch').val())) {
             (event.preventDefault) ? event.preventDefault():event.returnValue = false;
@@ -333,7 +333,7 @@ $(document).ready(function() {
     }); // end click button functions
     
     // set up event for custom search term
-    $('#dinoForm').submit(function() {
+    $('#dinoForm').submit(function(event) {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         var dinoSearchTerm = $('#customSearch').val();
         searchDinoStuff(dinoSearchTerm);
@@ -353,18 +353,18 @@ $(document).ready(function() {
     });
     
     // prevent default when no response button is clicked 
-    $('.noResponseContainer a').click(function() {
+    $('.noResponseContainer a').click(function(event) {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
     });
     
     //set up click event for "restart" button
-    $('a.restart').click(function() {
+    $('a.restart').click(function(event) {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         restartSearch();
     });
     
     // add count of one to page count and run search on next page
-    $('li.next a, .rightArrow' ).click(function() {
+    $('li.next a, .rightArrow' ).click(function(event) {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         if(forwardClickOk == true){
             forwardClickOk = false;
@@ -376,7 +376,7 @@ $(document).ready(function() {
     });
     
     // subtract one from page count and run search on that page
-    $('li.prev a, .leftArrow').click(function() {
+    $('li.prev a, .leftArrow').click(function(event) {
         (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
         if(backwardClickOk == true){
             backwardClickOk = false; // make one variable backward and forward
