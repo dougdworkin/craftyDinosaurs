@@ -18,10 +18,10 @@ $(document).ready(function() {
 
           // console.log( 'pageCount: ' + pageCount + ' historyPage: ' + historyPage );
                 
-          if(location.hash == '' ){
+          if(location.hash === '' ){
               restartSearch();
               homepageHash = "onHomePage";  // set flag on homepage
-          } else if (homepageHash == "onHomePage" && historyCategory!='') {
+          } else if (homepageHash === "onHomePage" && historyCategory!=='') {
             console.log(historyCategory);
             homepageHash = '';
             searchDinoStuff(historyCategory); // parameter 
@@ -169,7 +169,7 @@ $(document).ready(function() {
                 '<p>Sorry we can\'t do a search from the search box AND ' +
                 'do a search from the buttons. Please delete <em>' + textBoxSearch + 
                 '</em> as your search term before pressing <em>' +SearchTerm + '</em> ' +
-                ' or press the submit button to use <em>' + textBoxSearch +'</em>'
+                ' or press the submit button to use <em>' + textBoxSearch +'</em>' +
                 '</p>';
             return noTwoSearchTerms;
     }
@@ -257,7 +257,7 @@ $(document).ready(function() {
                 $('li.next').css('display', 'none');
                 $('.rightArrow').css('display', 'none');
             }
-            if (Pages == pageCount) {
+            if (Pages === pageCount) {
                 $('li.next').css('display', 'none');
                 $('.rightArrow').css('display', 'none');
             } else {
@@ -276,13 +276,10 @@ $(document).ready(function() {
             }
         }
     // move results backward or forwards
-    function moveDinoResults(pageCount) {
-            // var newPagePercent = (pageCount - 1) * 100;
-
-            // if (!((pageCount == 1)&&(pageDirection == 'forward'))){
+    function moveDinoResults() {
                 
             // move forwards    
-                if (pageDirection == 'forward') {
+                if (pageDirection === 'forward') {
                     $('.output.new').addClass('preResult');
                
                     $('.output.current').animate({
@@ -295,7 +292,7 @@ $(document).ready(function() {
 
 
                 // move backwards    
-                } else if (pageDirection == 'backward') {
+                } else if (pageDirection === 'backward') {
      
                 var newOutput = $('.output.new');
 
@@ -320,21 +317,21 @@ $(document).ready(function() {
     $('li.searchButton').click(function(event) {
         // run search function from button if custom search firls is empty
         if (!($('#customSearch').val())) {
-            (event.preventDefault) ? event.preventDefault():event.returnValue = false;
+            event.preventDefault();
             var dinoSearchTerm = $(this).attr('id');
             searchDinoStuff(dinoSearchTerm);
         // otherwise dont do the search
         } else { // if custom search has a value then dont let the button work
             event.preventDefault();
             SearchTerm = $(this).attr('id');
-            var nosearchMessage = buildMessageNoTwoSearches($('#customSearch').val())
+            var nosearchMessage = buildMessageNoTwoSearches($('#customSearch').val());
             dropErrorMessage(nosearchMessage);
         }
     }); // end click button functions
     
     // set up event for custom search term
     $('#dinoForm').submit(function(event) {
-        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
+        event.preventDefault();
         var dinoSearchTerm = $('#customSearch').val();
         searchDinoStuff(dinoSearchTerm);
     }); // end custom search function
@@ -354,19 +351,19 @@ $(document).ready(function() {
     
     // prevent default when no response button is clicked 
     $('.noResponseContainer a').click(function(event) {
-        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
+        event.preventDefault();
     });
     
     //set up click event for "restart" button
     $('a.restart').click(function(event) {
-        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
+        event.preventDefault();
         restartSearch();
     });
     
     // add count of one to page count and run search on next page
     $('li.next a, .rightArrow' ).click(function(event) {
-        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
-        if(forwardClickOk == true){
+        event.preventDefault();
+        if(forwardClickOk === true){
             forwardClickOk = false;
             ++pageCount;
             pageDirection = 'forward';
@@ -377,8 +374,8 @@ $(document).ready(function() {
     
     // subtract one from page count and run search on that page
     $('li.prev a, .leftArrow').click(function(event) {
-        (event.preventDefault) ? event.preventDefault(): event.returnValue = false;
-        if(backwardClickOk == true){
+        event.preventDefault();
+        if(backwardClickOk === true){
             backwardClickOk = false; // make one variable backward and forward
             --pageCount;
             pageDirection = 'backward';
