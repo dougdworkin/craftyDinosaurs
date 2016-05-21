@@ -6,13 +6,35 @@
     <link href="css/mainStyles.css" rel="stylesheet" type="text/css">
     <!-- script for font -->
 
-    <script src="https://use.typekit.net/yvj4ygq.js">
-    </script>
+    <script src="https://use.typekit.net/yvj4ygq.js"></script>
     <script>
     try{Typekit.load({ async: true });}catch(e){}
     </script>
+
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+    <script src="js/dino_walk_animation.js"></script>
+
+    <script>
+    var canvas, stage, exportRoot;
+    function init() {
+        // --- write your JS code here ---
+        
+        canvas = document.getElementById("canvas");
+        exportRoot = new lib.dino_walk_animation_symbol();
+
+        stage = new createjs.Stage(canvas);
+        stage.addChild(exportRoot);
+        stage.update();
+
+        createjs.Ticker.setFPS(lib.properties.fps);
+        createjs.Ticker.addEventListener("tick", stage);
+    }
+
+    </script>
+
 </head>
-<body>
+<body onload="init();" >
     <div class="headerContainer">
         <header>
             <div class="headerText">
@@ -43,6 +65,12 @@
 
                 <div class="searchContainer">
                    <!--  <h2>Find hand crafted dino-related items from Etsy</h2>  removing this for now draft version-->
+
+                  <!--  Dino Walk Animation -->
+                  <!--  <div class="test">
+                   <canvas id="canvas" width="979" height="652" ></canvas>
+
+                   </div> -->
 
                     <div class="dinoImage">
                         <div class="header-row">
@@ -76,33 +104,33 @@
                         <div class="searchbuttons">
                             <ul class="searchList">
                                 <li class="searchButton" id="dinosaur">
-                                    <a href="#">More Dinosaurs!</a>
+                                    <a class="paper-curl skewLeft" href="#">More Dinosaurs!</a>
                                 </li>
                                 <li class="searchButton" id="kids">
-                                    <a href="#">Kids</a>
+                                    <a class="paper-curl" href="#">Kids</a>
                                 </li>
-                                <li class="searchButton" id="holidays">
-                                    <a href="#">Holidays</a>
+                                <li class="searchButton skewRight" id="holidays">
+                                    <a class="paper-curl" href="#">Holidays</a>
                                 </li>
-                                <li class="searchButton" id="pets">
-                                    <a href="#">Pets</a>
+                                <li class="searchButton skewLeft" id="pets">
+                                    <a  class="paper-curl"href="#">Pets</a>
                                 </li>
                                 <li class="searchButton" id="dancing">
                                     <a href="#">Dancing</a>
                                 </li>
-                                <li class="searchButton" id="romance">
+                                <li class="searchButton skewRight" id="romance">
                                     <a href="#">Romance</a>
                                 </li>
                                 <li class="searchButton" id="hipsters">
                                     <a href="#">Hipsters</a>
                                 </li>
-                                <li class="searchButton" id="parties">
+                                <li class="searchButton skewLeft" id="parties">
                                     <a href="">Parties</a>
                                 </li>
                                 <li class="searchButton" id="unicorns">
                                     <a href="">Unicorns</a>
                                 </li>
-                                <li class="searchButton" id="aliens">
+                                <li class="searchButton skewRight" id="aliens">
                                     <a href="">SPACE ALIENS!</a>
                                 </li>
                             </ul>
@@ -113,7 +141,7 @@
                             <label class="search" for="customSearch">...or add your own
                             dino-search word</label> 
                             <input id="customSearch" name=
-                            "customSearch" placeholder="i.e hot dogs" required="" type=
+                            "customSearch" placeholder="(example: hot dogs)" required="" type=
                             "text"> 
                             <input id="seachSubmitButton" type="submit" value=
                             "submit">
@@ -133,7 +161,11 @@
                 </div><!-- End search container -->
             </div> <!--end outer search container --> 
 
+
+               
+                  <!--  Dino Walk Animation --> 
             <div class="stegoPush">
+                 <canvas id="canvas" width="979" height="652" ></canvas>
                 <div class="stegoPushAnimate animate-forward"></div>
                 <div class="stegoPushAnimate animate-backwards hide"></div>
             </div>
@@ -177,8 +209,11 @@
 
     <script src="libraries/jQuery.1.11.3.js" type="text/javascript">
     </script> 
+    
     <script src="js/craftyDinosaurs.js" type="text/javascript">
     </script>
+
+
 
 
 

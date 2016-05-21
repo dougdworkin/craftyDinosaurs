@@ -227,8 +227,8 @@ $(document).ready(function() {
 
     // reset and restart search
     function restartSearch() {
-            $('.animate-forward').addClass('hide');
-            $('.animate-backwards').removeClass('hide');
+            $('#canvas').addClass('flip');
+            // $('.animate-backwards').removeClass('hide');
 
             $('#customSearch').val('');
             $('.searchAndResults').css({ transform: 'translateX(0%)' });
