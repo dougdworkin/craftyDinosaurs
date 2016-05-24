@@ -198,8 +198,8 @@ $(document).ready(function() {
 
     //Build Message for top results header that show search items
     function resultsHeader(searchTerm) {
-                var resultsHeaderText = '<em>Dinosaurs</em> + <em>' +
-                searchTerm + '</em>! What a great combo!';
+                var resultsHeaderText = '<span class="post-it-header"><em>Dinosaurs</em> + <em>' +
+                searchTerm + '</em></span> What a great combo!';
             $('h1.resultsHeader').html(''); // clears previous message
             return resultsHeaderText;
         }
