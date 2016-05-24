@@ -199,7 +199,7 @@ $(document).ready(function() {
     //Build Message for top results header that show search items
     function resultsHeader(searchTerm) {
                 var resultsHeaderText = '<span class="post-it-header"><em>Dinosaurs</em> + <em>' +
-                searchTerm + '</em></span> What a great combo!';
+                searchTerm + '</em></span> <span class="post-it-subheader">What a great combo!</span>';
             $('h1.resultsHeader').html(''); // clears previous message
             return resultsHeaderText;
         }
