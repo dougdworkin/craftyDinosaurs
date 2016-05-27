@@ -41,6 +41,7 @@ $(document).ready(function() {
 
     // send search request
     function searchDinoStuff(searchTerm, keepHistory) {
+        console.log('boom');
 
            // keep history as true unless false is passed in
            keepHistory = keepHistory!== false;
@@ -74,10 +75,10 @@ $(document).ready(function() {
                        
                        // check if requesting a page is greater than total pages available
                        // and, if so, go to last page available
-                       if (totalPages < pageCount){
-                            pageCount = totalPages;
-                            searchDinoStuff(searchTerm, false);
-                       }
+                       //  if (totalPages < pageCount){
+                       //      pageCount = totalPages;
+                       //      searchDinoStuff(searchTerm, false);
+                       // }
 
                         // look to see if there are any results and post them
                         if ((totalItems) > 0) {
@@ -113,7 +114,9 @@ $(document).ready(function() {
      
 
                         } else { // if no results create message
-                            dropErrorMessage(buildMessageNoProducts(searchTerm));
+                            dropErrorMessage(buildMessageNoProducts(searchTerm)); 
+                            console.log('make error message');
+                            return;
                         }
                     },
                     type: "GET"
@@ -153,14 +156,16 @@ $(document).ready(function() {
         }
         
     //Build the message for no items found in etsy
-    function buildMessageNoProducts(searchTerm) {
+    function buildMessageNoProducts(invalidSearchTerm) {
             var noDinoProducts =
                 '<p>No one is making any crafts that are combine' +
-                ' <em>dinosaurs</em> with <em>' + searchTerm +
+                ' <em>dinosaurs</em> with <em>' + invalidSearchTerm +
                 '</em>. This might be a good market for you to start!</p>' +
                 '<p><a href="#">In the meantime you can still <span>' +
                 'look for other dino-products</span></a></p>';
+            console.log('put together message and about to return message value');    
             return noDinoProducts;
+            console.log('return message value');
     }
 
     //Build the message for only one search term
@@ -174,12 +179,15 @@ $(document).ready(function() {
             return noTwoSearchTerms;
     }
 
-    function dropErrorMessage(errorMessage){
-       $('.noResponseContainer').fadeIn('400', function() {
+    function dropErrorMessage(errorMessage) {
+        console.log('ready to show error message'); /// at this point jumps to line 117
+       
+           $('.noResponseContainer').fadeIn('400');
            $('.noResponseMessage').append(errorMessage);
-           $('.noResponseMessage').css('top','70px');
-       });
-    }
+           $('.noResponseMessage').css('top','20%');
+           
+       }
+    
 
     function makeResultsPage(data){
 

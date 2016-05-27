@@ -12,18 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "js/craftyDinosaurs.js",
 			"settings":
 			{
-				"buffer_size": 8179,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/dino_walk_animation.js",
-			"settings":
-			{
-				"buffer_size": 91170,
+				"buffer_size": 16433,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,15 +23,24 @@
 			"file": "css/mainStyles.css",
 			"settings":
 			{
-				"buffer_size": 13313,
+				"buffer_size": 15001,
 				"line_ending": "CR"
 			}
 		},
 		{
-			"file": "js/craftyDinosaurs.js",
+			"contents": ".search elements\n\n.results container\n\n\n.searchElements, .dinoImage {\n	background-color: green;\n	background-repeat: repeat-x;\n	/*border-radius: 13px;*/\n  	box-shadow: 1px 1px 1px #000;\n  	background-image: url('../images/felt_green_box_01.jpg');\n  	background-repeat: repeat;\n  	position:relative;\n  	background: url(../images/stitches_left_side.jpg) left top repeat-y, \n		url(../images/stitches_right_side.jpg) right top repeat-y,\n		url(../images/felt_green_box_01.jpg);\n} \n",
 			"settings":
 			{
-				"buffer_size": 15970,
+				"buffer_size": 474,
+				"line_ending": "Unix",
+				"name": ".search elements"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 8076,
 				"line_ending": "Unix"
 			}
 		}
@@ -90,10 +91,14 @@
 	"expanded_folders":
 	[
 		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master",
+		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/css",
 		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/js"
 	],
 	"file_history":
 	[
+		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/js/craftyDinosaurs.js",
+		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/images/purple_felt_03.png",
+		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/js/dino_walk_animation.js",
 		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master/index (Doug Dworking MBPr's conflicted copy 2016-04-11).html",
 		"/Users/dougpdworkin/Desktop/test_shadow.html",
 		"/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/animation/dino_walk_v10_legs_symbol.html"
@@ -114,6 +119,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dropErrorMessage",
+			"submit\n",
+			"buildMessageNoProducts",
+			"-3",
+			"-6",
+			"resultsHeader",
+			"header",
 			"(event.preventDefault) ? event.preventDefault(): event.returnValue = false;",
 			"event",
 			"(event.preventDefault) ? event.preventDefault(): event.returnValue = false;",
@@ -144,80 +156,50 @@
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "js/craftyDinosaurs.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8179,
+						"buffer_size": 16433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								893,
-								893
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2458.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/dino_walk_animation.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 91170,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63404,
-								63404
+								6693,
+								6693
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 14986.0,
+						"translation.x": 55.0,
+						"translation.y": 2747.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "css/mainStyles.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13313,
+						"buffer_size": 15001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13313,
-								13313
+								11340,
+								11340
 							]
 						],
 						"settings":
@@ -228,7 +210,37 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2214.0,
+						"translation.y": 11134.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								470,
+								69
+							]
+						],
+						"settings":
+						{
+							"auto_name": ".search elements",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
+							"default_dir": "/Users/dougpdworkin/Dropbox/classes/ThinkFul/Projects/apis/craftyDinosaur/craftyDinosaurs-master",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -236,30 +248,30 @@
 				},
 				{
 					"buffer": 3,
-					"file": "js/craftyDinosaurs.js",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15970,
+						"buffer_size": 8076,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15484,
-								15484
+								1622,
+								1622
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 57.0,
-						"translation.y": 6422.0,
+						"translation.x": 0.0,
+						"translation.y": 743.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
