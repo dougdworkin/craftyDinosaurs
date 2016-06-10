@@ -12,19 +12,30 @@
 	"buffers":
 	[
 		{
-			"file": "js/craftyDinosaurs.js",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 16433,
+				"buffer_size": 53416,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "\n\n/*********** Start Reset ********************\n*********************************************/\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n	margin: 0;\n	padding: 0;\n	border: 0;\n	font-size: 100%;\n	font: inherit;\n	vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n	display: block;\n}\nbody {\n	line-height: 1;\n}\nol, ul {\n	list-style: none;\n}\nblockquote, q {\n	quotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n	content: '';\n	content: none;\n}\ntable {\n	border-collapse: collapse;\n	border-spacing: 0;\n}\n\n/************** End Reset ********************\n*********************************************/\n\n/* *********Border Box Reset**************** */\n\nhtml {\n  box-sizing: border-box;\n}\n*, *:before, *:after {\n	box-sizing: inherit;\n}\n\n\n/* *********End Border Box Reset**************** */\n\n\nbody {\n	font-family: arial, sans-serif;\n	color: #333;\n	background-image: url('../images/felt_blue_01.jpg');\n}\n\n.clear {\n	clear: both;\n}\n\na {\n	cursor: pointer;\n}\n\n#container {\n	/*width:100%;*/\n	padding:0;\n	margin:0;\n	overflow: hidden;\n	background-image: url('../images/felt_blue_01.jpg');\n	/*background-image: url('../images/clothBackroundv1.png'); */\n	/*height: 100vh;*/\n/*	background-color: #fae2b8;\n*/\n}\n\n/*  HEADER STYLES  */\n.headerContainer {\n	width:100%;\n	border-bottom:dashed 3px #fee6ba;\n	background-image: url('../images/yarn01.png');\n	margin-bottom: 5px;\n	box-shadow: 0 0 0 5px #613671, 2px 1px 6px 4px rgba(10, 10, 0, 1.0);\n}\n\n\n.searchAndResults {\n	width:100%;\n	display: flex;\n	flex-wrap: row;\n	  transition: transform 10s ease-in-out;\n	  margin: 0 auto;\n	  background-image: url('../images/felt_blue_01.jpg');\n\n}\n\nheader, .searchContainer, .resultsContainer {\n		/*max-width: 1000px; change? */\n		margin: 0 auto;\n		width:90%;\n		max-width:1000px;\n}\n\n.outerSearchContainer, .outerResultsContainer {\n	width: 100%;\n	flex-shrink: 0;\n	padding: 1em 3em;\n	margin: 0 auto;\n	background-image: url('../images/felt_blue_01.jpg');\n/*	background-image: url('../images/clothBackroundv1.png');*/\n\n\n}\n\n.searchContainer, .resultsContainer {\n\n}\n\n.searchContainer {\n	padding-top: 1em;\n	display:flex;\n	flex-wrap: nowrap;\n	justify-content: center;\n	position: relative;\n}\n\nheader {\n	max-width: 900px;\n	position: relative;\n	padding-top: 1em;\n}\n\n.headerText {\n	float:left;\n	width:70%;\n}\n\n.headerImage {\n	float: right;\n}\n\nheader img {\n	height: auto;\n	width: 9em;\n}\n\nheader h1{\n	font-family: \"click-clack\", serif;\n	font-style: normal;\n	font-weight: 500;\n	font-size: 3.5em;\n	color: #fff;\n	margin-bottom:0;\n	margin-top: .2em;\n}\n\nheader h2 {\n	font-size: 2em;\n	margin-top:.5em;\n	margin-bottom: 1em;\n	color: rgb(227,199,219);\n}\n\n\n\n/*  SEARCH CONTAINER STYLES  */\n\n\n.searchContainer h2 {\n	font-size: 1.75em;\n	padding-top: .15em;\n/*	margin-bottom:1em;*/\n}\n\n.searchElements, .dinoImage {\n	background-color: green;\n	background-repeat: repeat-x;\n	/*border-radius: 13px;*/\n	text-align: center;\n	  box-shadow: 1px 1px 1px #000;\n	  background-image: url('../images/felt_green_box_01.jpg');\n	  background-repeat: repeat;\n	  position:relative;\n	  background: url(../images/stitches_left_side.jpg) left top repeat-y,\n		url(../images/stitches_right_side.jpg) right top repeat-y,\n		url(../images/felt_green_box_01.jpg);\n}\n\n\n\ndiv.header-row {\n	position: relative;\n	background:\n	url(../images/stitches_l_t_corner.jpg) left top no-repeat,\n		url(../images/stitches_r_t_corner.jpg) right top no-repeat,\n		url(../images/felt_stitch_purple.jpg) left top repeat-x,\n		url(../images/purple_felt_04.png) repeat;\n\n	height: 56px;\n}\n\n.footer_row {\n	background-image: url('../images/felt_stitch_green.jpg');\n	background: url(../images/stitches_l_b_corner.jpg) left bottom no-repeat,\n		url(../images/stitches_r_b_corner.jpg) right bottom no-repeat,\n		url(../images/felt_stitch_green.jpg) left bottom repeat-x;\n	height: 30px;\n	position: absolute;\n	bottom:0;\n	width:100%;\n}\n\n.dino-image-holder {\n	height: 100%;\n}\n\n.dinoImage {\n	float:left;\n	width:50%;\n	max-width:361px;\n	height: 543px;\n	position: relative;\n}\n\n\n.feltDinoBox {\n	width:85%;\n	position: absolute;\n	left:8%;\n	bottom:27%;\n\n}\n\n.crafty_dino_group {\n	z-index:500;\n	position: absolute;\n	width: 105%;\n	left:-11px;\n	bottom:23%;\n\n}\n\n.searchWindow {\n	color: #efdcc4;\n	font-size: 2em;\n	line-height: 2em;\n}\n\n\n\n\n.plus {\n	width: 13%;\n	padding: 8em .75em;\n	float: left;\n	margin-top:3em;\n}\n\n.plus img{\n	height: auto;\n	max-width: 100%;\n}\n\n.searchElements {\n	float: left;\n	width:45%;\n}\n\n.searchbuttons {\n	padding-bottom: 1em;\n	margin-bottom:1em;\n	width: 90%;\n	margin: auto;\n	padding-top:.5em;\n}\n\n\n\n\nli.searchButton {\n	position:relative;\n	z-index: 1;\n\n}\n\nli.searchButton a {\n	display: inline-block;\n	padding: .75em .25em;\n	background-color:#0082b9;\n	margin: .5em .5em;\n	width: 45%;\n	border: solid 3px rgba(0,0,0, .1);\n	border-radius: 5px;\n	font-weight:500;\n	font-size: 1em;\n	text-decoration: none;\n	color: white;\n	letter-spacing:1.5px;\n	float: left;\n	box-sizing: border-box;\n}\n\n\n\nli.searchButton a {\n	position: relative;\n}\n\nli.searchButton a:before, li.searchButton a:after {\n	position: absolute;\n	width: 52%;\n	height: 32px;\n	content: ' ';\n	left: 5px;\n	bottom: 1px;\n	background: transparent;\n	-webkit-transform: skew(-5deg) rotate(-5deg);\n	-moz-transform: skew(-5deg) rotate(-5deg);\n	-ms-transform: skew(-5deg) rotate(-5deg);\n	-o-transform: skew(-5deg) rotate(-5deg);\n	transform: skew(-5deg) rotate(-5deg);\n	-webkit-box-shadow: 0 6px 6px rgba(67, 114, 65, 1);\n	-moz-box-shadow: 0 6px 6px rgba(67, 114, 65, 1);\n	box-shadow: 0 6px 6px rgba(67, 114, 65, 1);\n	z-index: -1;\n}\n\nli.searchButton a:after {\n  transform: rotate(3deg);\n  right: 2px;\n  left: auto;\n}\n\n\n\n\n\nli.searchButton a:hover {\n	cursor: pointer;\n	background-color: #64368b;\n}\n\n.searchElements > form {\n	clear: both;\n}\n\n.searchElements > form > label {\n	display: block;\n	margin-bottom: .5em;\n	font-size: 140%;\n	color: #80598c;\n	font-weight: 700;\n\n}\n\n#seachSubmitButton, #customSearch {\n	font-size:1.3em;\n	border-radius:7px;\n	margin-bottom: 1em;\n	padding: 6px;\n}\n\n\n\n#seachSubmitButton {\n	border: none;\n\n}\n\n#customSearch {\n	width: 60%;\n}\n\n#seachSubmitButton {\n	background: #64368b;\n	color: white;\n	padding: 6px 10px;\n	margin-left:15px;\n	cursor: pointer;\n}\n\n.randomWordSearch button {\n	font-size: 1.3em;\n	display: inline-block;\n	margin-top: 0;\n	border-radius: 13px;\n	margin-bottom: 1em;\n	font-weight: 300;\n	background: #fded92;\n	color: #80598c;\n	border: none;\n	padding: .5em .1em;\n	border: solid 2px #72af52;\n	width: 80%;\n	position: relative;\n	z-index: 5;\n}\n\n.randomWordSearch button:hover {\n	cursor: pointer;\n	background-color: #80598c;\n	color: white;\n}\n\n.randomWordSearch button em {\n	font-weight: 700;\n}\n\n\n/*  RESULTS CONTAINER STYLES  */\n\n\n.carousel {\n	overflow-x: hidden;\n	width: 100%;\n	padding-left: 20px;\n	padding-right: 20px;\n}\n\n\nh1.resultsHeader {\n	font-size: 1.75em;\n	color: darkblue;\n	float: left;\n	margin-right: .5em;\n	display: inline-block;\n}\n\n/*h1.resultsHeader em{\n	font-weight: 700;\n	color:#64368b;\n}*/\n\nh2.resultsSubHeaders {\n	float: right;\n	display: inline-block;\n	font-size: 1.15em;\n	color: rgba(255,255,255, 0.7);\n	margin-right: 20px;\n	margin-top: 25px;\n}\n\nh2.resultsSubHeader em{\n	font-weight: 700;\n}\n\n\n.post-it-header {\n	display: inline-block;\n	font-family: \"chantal\", san-serif;\n	font-weight:500;\n	color: black;\n	background-color: #fbea87;\n	padding: 10px;\n	margin-right: 20px;\n	margin-left: 20PX;\n	padding-top:13px;\n	margin-top:10px;\n	/* position: absolute; */\n	-webkit-transform: rotate(-3deg);\n	   -moz-transform: rotate(-3deg);\n		-ms-transform: rotate(-3deg);\n		 -o-transform: rotate(-3deg);\n			transform: rotate(-3deg);\n	-webkit-box-shadow: 0px 1px 9px #333333;\n			box-shadow: 0px 1px 9px #333333;\n}\n\n\n.post-it-header::before {\n	content: ' ';\n	display: block;\n	position: absolute;\n	left: 100px;\n	top: -13px;\n	width: 61px;\n	height: 22px;\n	z-index: 2;\n	background-color: rgba(243,245,228,0.4);\n	border: 2px solid rgba(255,255,255,0.1);\n	-webkit-box-shadow: 0px 0px 1px #333;\n	-moz-box-shadow: 0px 0px 1px #333;\n	box-shadow: 0px 0px 1px #333;\n	-webkit-transform: rotate(-3deg);\n	-moz-transform: rotate(6deg);\n	-o-transform: rotate(6deg);\n}\n\n.post-it-subheader{\n	display: inline-block;\n	color: white;\n	margin-top: -5px;\n}\n\n\n.resultsContainer {\n	width:90%;\n/*    border: solid 3px purple;\n	border-radius: 13px;*/\n	/*padding: 20px;*/\n	background-color: linen;\n	position:relative;\n	flex-shrink: 0;\n\n	background-color: green;\n	background-repeat: repeat-x;\n	/*border-radius: 13px;*/\n	  box-shadow: 1px 1px 1px #000;\n	  background-image: url('../images/felt_green_box_01.jpg');\n	  background-repeat: repeat;\n	  position:relative;\n	  background: url(../images/stitches_left_side.jpg) left top repeat-y,\n		url(../images/stitches_right_side.jpg) right top repeat-y,\n		url(../images/felt_green_box_01.jpg);\n\n	-webkit-transition: left 2s ease-in-out;\n	   -moz-transition: left 2s ease-in-out;\n		-ms-transition: left 2s ease-in-out;\n		 -o-transition: left 2s ease-in-out;\n			transition: left 2s ease-in-out;\n}\n\n\n\n.resultsArea {\n	margin:1%;\n	margin-top:0;\n	display:flex;\n	-webkit-flex-flow: row;\n		-ms-flex-flow: row;\n			flex-flow: row;\n}\n\n.output {\n	padding: 1.5em 0 1.25em 0;\n	-webkit-flex-shrink: 0;/* this keeps container at 100%Â */\n			flex-shrink: 0;\n	width: 100%;\n	justify-content: flex-start;\n	flex-wrap: wrap;\n	display: flex;/* this keeps container at 100%Â */\n\n}\n\n\n.itemCell {\n	width:31.3%;\n	max-height:450px;\n	display: flex;\n	flex: 1 0 auto;\n	margin-bottom: -1px;\n	margin-right: -1px;\n	text-align: center;\n}\n\n.itemHolder {\n	width: 100%;\n	padding: 1em;\n	border: dashed 1.5px darkorange;\n	background-color: seashell;\n	height:320px;\n}\n\n.itemHolder .image {\npadding-bottom: 10%;\nwidth:80%;\nmargin: auto;\n\n}\n\n.itemHolder .image img {\n	max-width:100%;\n	height:100%;\n	border-radius: 20px;\n	background-color: white;\n	padding: 5px;\n	border: solid 1px purple;\n	-webkit-transition: background-color 1s;\n	transition: background-color 1s;\n}\n\n.itemHolder .image img:hover {\n	background-color: #633b8c;\n}\n\n.itemHolder .image a {\n	cursor: pointer;\n}\n\n\n.itemHolder h3 {\n	font-size: 1em;\n	font-weight: 200;\n	margin-bottom: .5em\n}\n\n.itemHolder h3 a {\n	border: none;\n	color: #0083bb;\n	text-decoration: none;\n/*	-webkit-transition: color .5s;\n	transition: color .5s;	*/\n}\n\n.itemHolder  h3 a:hover {\n	color: #633b8c;\n	cursor: pointer;\n}\n\n\n/*No response message*/\n\n.noResponseContainer {\n	position: fixed;\n	top: 0px;\n	left: 0px;\n	right: 0px;\n	bottom: 0px;\n	z-index: 600;\n	background-color: rgba(67,75,68, 0.9);\n	display: none;\n	position: absolute;\n	display: none;\n	overflow-x: hidden;\n}\n\n.noResponseContainer .noResponseMessage {\n	width: 75%;\n	max-width: 700px;\n	display: block;\n	background-color: #FFF;\n	position: absolute;\n	top: -200px;\n	left:0;\n	right:0;\n	margin-left:auto;\n	margin-right:auto;\n	font-size: 1.2em;\n	line-height: 1.5;\n	padding: 1.2em;\n	text-align: center;\n	border: solid .25em #8b70b1;\n	-webkit-transition: top 1s;\n	   -moz-transition: top 1s;\n		-ms-transition: top 1s;\n		 -o-transition: top 1s;\n			transition: top 1s;\n	-webkit-border-radius: 10px;\n			border-radius: 10px;\n}\n\n.noResponseMessage p {\n	padding: 0;\n	margin:0 0 1em 0;\n}\n.noResponseMessage p:last-child {\n	margin-bottom:0;\n}\n\n.noResponseMessage em {\n	font-weight: 700;\n	color: #4d4d4d;\n	text-transform: uppercase;\n}\n\n.noResponseMessage a {\n	padding: .5em .7em;\n	background-color: #633b8b;\n	color:white;\n	font-weight: normal;\n	text-decoration: none;\n	display: block;\n	letter-spacing: 1px;\n	cursor: pointer;\n	-webkit-border-radius: 10px;\n			border-radius: 10px;\n}\n\n.noResponseMessage a:hover {\n	background-color: #0083ba;\n	text-decoration: underline;\n}\n\n.noResponseMessage a span {\n	white-space: nowrap;\n}\n\n/*Arrows*/\n\n.arrow {\n	position: absolute;\n	z-index: 100;\n	height:80px;\n	width:80px;\n	transition: all .3s ease-in-out;\n}\n\n.leftArrow {\n	left: -28px;\n	top: 45%;\n	display:none;\n	-webkit-transform: rotate(7deg) scale(0.85, 0.85);\n	   -moz-transform: rotate(7deg) scale(0.85, 0.85);\n	-ms-transform: rotate(7deg) scale(0.85, 0.85);\n	 -o-transform: rotate(7deg) scale(0.85, 0.85);\n	transform: rotate(7deg) scale(0.85, 0.85);\n	-webkit-box-shadow: 0px 0px 9px #333333;\n			box-shadow: 0px 0px 9px #333333;\n}\n\n.rightArrow {\n	right: -20px;\n	top: 45%;\n	display:none;\n	-webkit-transform: rotate(-7deg) scale(0.85, 0.85);\n	   -moz-transform: rotate(-7deg) scale(0.85, 0.85);\n	-ms-transform: rotate(-7deg) scale(0.85, 0.85);\n	 -o-transform: rotate(-7deg) scale(0.85, 0.85);\n		transform: rotate(-7deg) scale(0.85, 0.85);\n	-webkit-box-shadow: 0px 0px 9px #333333;\n			box-shadow: 0px 0px 9px #333333;\n}\n\n\n.leftArrow:hover, .rightArrow:hover {\n	cursor: pointer;\n	-webkit-transform: rotate(0deg) scale(1, 1);;\n	   -moz-transform: rotate(0deg) scale(1, 1);;\n	-ms-transform: rotate(0deg) scale(1, 1);;\n	 -o-transform: rotate(0deg) scale(1, 1);;\n		transform: rotate(0deg) scale(1, 1);\n\n}\n\n/*Pagination Buttons*/\n\n.navButtons {\n\n}\n\n\n.navButtons {\n	text-align: center;\n	height:80px;\n}\n\n.navButtonsList li {\n	display: inline-block;\n	margin: .50em .25em 1.5em 1em;\n}\n\n.navButtonsList li a {\n	font-size: 1.5em;\n	padding: .25em .75em;\n	background-color: #64368b;\n	color: white;\n	text-decoration: none;\n	cursor: pointer;\n	-webkit-border-radius: 7px;\n			border-radius: 7px;\n	transition: background-color .25s ease-in-out;\n}\n\n.navButtonsList li a:hover {\n	background-color: #0082b9;\n}\n\n.navButtonsList li.next {\n	display:none;\n}\n\n.navButtonsList li.prev {\n	display:none;\n}\n/*************************************************/\n/* ***********  Stego Push area **************** */\n/*************************************************/\ndiv.stegoPush {\n	background: #aecaca;\n	margin: 0;\n	padding: 0;\n	border-left: 2px solid black;\n	border-right: 2px solid black;\n	width:45%;\n	flex-shrink: 0;\n	position: relative;\n	overflow-x: hidden;\n\n\n}\n\n\ncanvas {\n\n}\n\n.flip {\nposition: absolute;\nright:0;\n-moz-transform: scale(-1, 1);\n-webkit-transform: scale(-1, 1);\n-o-transform: scale(-1, 1);\ntransform: scale(-1, 1);\nfilter: FlipH;\n}\n\n\n@keyframes play-forward{\n   100% { background-position: -3000px; }\n}\n\n@keyframes play-backward{\n   100% { background-position: 3000px; }\n}\n\n.hide {\n	display:none;\n}\n\n\n\n/**/\n\n.dinos_container {\n	position: absolute;\n	top: 0;\n	left:50%;\n	transform: translateX(-50%);\n	z-index: 50;\n	width: 100%;\n	height:100%;\n	background: rgba(255,255,255,0.7);\n}\n\n.dinos_container svg {\n		position: absolute;\n		top:0;\n		left:0;\n		width:100%\n\n}\n\n/* ******* Triceratops *************** */\n\n.tri_container {\n		position: absolute;\n		width: 60%;\n		left:1%;\n		bottom:26%;\n	}\n\n.tri-z-01 {z-index: 206;}\n.tri-z-02 {z-index: 205;}\n.tri-z-03 {z-index: 204;}\n.tri-z-04 {z-index: 203;}\n.tri-z-05 {z-index: 202;}\n.tri-z-06 {z-index: 201;}\n\n#rt_eyelid {\n	transform: translateY(-77%);\n}\n\n#rb_eyelid {\n	transform: translateY(61%);\n}\n\n\n#lt_eyelid {\n	transform: translateY(-89%);\n}\n\n#lb_eyelid {\n	transform: translateY(53%);\n}\n\n\n\n/* ******* Raptor *************** */\n\n\ndiv.raptor_container {\n		position: absolute;\n		width: 51%;\n		right:0%;\n		bottom:20%;\n}\n\n.c01 {z-index: 405;}\n.c02 {z-index: 402;}\n.c03 {z-index: 401;}\n.c04 {z-index: 400;}\n\n\n\n/*.pupil, .rapt-highlight {\n	transform: translateX(0px);\n}*/\n\n#eyelid_tl {\n	transform: translateY(-68%);\n}\n\n#eyelid_bl {\n	transform: translateY(44%);\n}\n\n#eyelid_tr {\n	transform: translateY(-67%);\n}\n\n#eyelid_br {\n	transform: translateY(41%);\n}\n\n\n/* ******* PTERO *************** */\n\n.ptero_container {\n		position: absolute;\n		width: 92%;\n		right:10%;\n		bottom:77%;\n}\n\n.ptero-z-01 {z-index: 90;}\n\n#pterodactyl {\n\n}\n\n/* ==========================================================================\n   Media Queries\n========================================================================== */\n\n\n/**** < 1130 *** */\n@media only screen and (max-width: 1130px) {\n\n/*.outerResultsContainer */\n.outerSearchContainer {\n	 padding: 1em 0;\n	}\n\n}\n\n\n/**** < 1080 *** */\n@media only screen and (max-width: 1080px) {\n\n	div.dinoImage, div.plus {\n		display: none;\n	}\n/*\n	.dinos_container {\n		width: 95%;\n	}*/\n\n	.searchElements {\n	float: none;\n	width:90%;\n	}\n\n	.ptero_container {\n		display: none;\n	}\n\n	div.raptor_container {\n		position:absolute;\n		left: 0;\n		bottom: -390px;\n		height:30%;\n		width: 30%;\n	}\n\n	div.tri_container {\n		position: absolute;\n		left: 67%;\n		/*top: 377px;*/\n		bottom:0px;\n		height:250px;\n		width: 250px;\n		z-index: 700000;\n	}\n\n	div.tri_container svg  {\n		position: absolute;\n	}\n\n	.dinos_container {\n	position: absolute;\n	top: 0;\n	left:50%;\n	transform: translateX(-50%);\n	z-index: 50;\n	width: 90%;\n	height:1%;\n	background: rgba(255,255,255,0.7);\n}\n\n}\n\n",
 			"file": "css/mainStyles.css",
+			"file_size": 16923,
+			"file_write_time": 131098957510000000,
 			"settings":
 			{
-				"buffer_size": 15001,
-				"line_ending": "CR"
+				"buffer_size": 17037,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/craftyDinosaurs.js",
+			"settings":
+			{
+				"buffer_size": 12767,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -34,14 +45,6 @@
 				"buffer_size": 474,
 				"line_ending": "Unix",
 				"name": ".search elements"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 8076,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -119,6 +122,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dinos_con",
+			"dino_con",
+			".searchElements",
+			"searchContainer",
 			"dropErrorMessage",
 			"submit\n",
 			"buildMessageNoProducts",
@@ -151,35 +158,35 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "js/craftyDinosaurs.js",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 16433,
+						"buffer_size": 53416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6693,
-								6693
+								49371,
+								49371
 							]
 						],
 						"settings":
 						{
 							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 55.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 20618.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -191,15 +198,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15001,
+						"buffer_size": 17037,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11340,
-								11340
+								16757,
+								16757
 							]
 						],
 						"settings":
@@ -210,14 +217,45 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 11134.0,
+						"translation.y": 16688.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "js/craftyDinosaurs.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12767,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 55.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
@@ -243,38 +281,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8076,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1622,
-								1622
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/User/Color Highlighter/themes/Cobalt.tmTheme",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1576.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
