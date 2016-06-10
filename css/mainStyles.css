@@ -947,23 +947,18 @@ div.raptor_container {
 
 	div.raptor_container {
 		position:absolute;
-		top:367px;
+		top:368px;
 		left: 35px;
 		width: 241px;
 	}
 
 	div.tri_container {
 		position: absolute;
-		top:366px;
-		right:60px;
-		width: 266px;
+		top:375px;
+		right:44px;
+		width: 254px;
 		z-index: 700000;
 	}
-
-	div.tri_container svg  {
-		position: absolute;
-	}
-
 
 	.dinos_container {
 	position: absolute;
@@ -1000,6 +995,41 @@ div.raptor_container {
 		font-size: 3.25em;
 	}
 
+	#seachSubmitButton {
+    display: block;
+    margin: auto;
+    }
+
+    #customSearch {
+    width: 40%;
+	}
+
+	.randomWordSearch {
+    position: absolute;
+    top: 260px;
+    right:2.5%;
+    width: 69%;
+	}
+
+	.randomWordSearch button{
+		-webkit-border-radius: 7px;
+		        border-radius: 7px;
+	}
+
+	.searchElements > form {
+	    padding-top: 25px;
+	}
+
+
+}
+
+
+/**** < 1080 *** */
+@media only screen and (max-width: 1080px) {
+
+	input#customSearch {
+    width: 35%;
+	}
 
 
 
