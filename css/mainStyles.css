@@ -270,11 +270,10 @@ div.header-row {
 .searchElements {
 	float: left;
 	width:45%;
+	margin-bottom:2em;
 }
 
 .searchbuttons {
-	padding-bottom: 1em;
-	margin-bottom:1em;
 	width: 90%;
 	margin: auto;
 	padding-top:.5em;
@@ -290,7 +289,7 @@ li.searchButton a {
 	display: inline-block;
 	padding: .75em .25em;
 	background-color:#0082b9;
-	margin: .5em .5em;
+	margin: 0.5em .25em .5em .85em; /* why do I need the .85em on left */
 	width: 45%;
 	border: solid 3px rgba(0,0,0, .1);
 	border-radius: 5px;
@@ -342,6 +341,7 @@ li.searchButton a:hover {
 
 .searchElements > form {
 	clear: both;
+	padding-bottom: 1.5em;
 }
 
 .searchElements > form > label {
@@ -384,30 +384,31 @@ li.searchButton a:hover {
 	background: #0082b9;
 	}
 
-.randomWordSearch button {
+.random-search-word {
 	font-size: 1.3em;
 	display: inline-block;
 	margin-top: 0;
-	border-radius: 13px;
-	margin-bottom: 1em;
+	border-radius: 7px;
+	margin-top: .75em;
+	margin-bottom:1em;
 	font-weight: 300;
 	background: #fded92;
 	color: #80598c;
 	border: none;
 	padding: .5em .1em;
 	border: solid 2px #72af52;
-	width: 80%;
+	width: 90%;
 	position: relative;
 	z-index: 5;
 }
 
-.randomWordSearch button:hover {
+.random-search-word:hover {
 	cursor: pointer;
 	background-color: #80598c;
 	color: white;
 }
 
-.randomWordSearch button em {
+.random-search-word em {
 	font-weight: 700;
 }
 
@@ -936,53 +937,6 @@ div.raptor_container {
 /**** < 1080 *** */
 @media only screen and (max-width: 1080px) {
 
-	div.dinoImage, div.plus {
-		display: none;
-	}
-
-
-	.searchElements {
-	float: none;
-	width:90%;
-	}
-
-	.ptero_container {
-		display: none;
-	}
-
-	div.raptor_container {
-		position:absolute;
-		top:368px;
-		left: 35px;
-		width: 241px;
-	}
-
-	div.tri_container {
-		position: absolute;
-		top:375px;
-		right:44px;
-		width: 254px;
-		z-index: 700000;
-	}
-
-	.dinos_container {
-	position: absolute;
-	top: 0;
-	left:50%;
-	transform: translateX(-50%);
-	z-index: 50;
-	width: 90%;
-	height:1%;
-	background: rgba(255,255,255,0.7);
-	}
-
-	.searchElements {
-	    height: 554px;
-	}
-
-	li.searchButton a {
-		width: 30%
-	}
 
 	header {
 	max-width: 700px;
@@ -1000,33 +954,67 @@ div.raptor_container {
 		font-size: 3.25em;
 	}
 
-	#seachSubmitButton {
-    display: block;
-    margin: auto;
-    }
-
-    #customSearch {
-    width: 40%;
+	div.dinoImage, div.plus {
+		display: none;
 	}
 
-	.randomWordSearch {
-    position: absolute;
-    top: 260px;
-    right:2.5%;
-    width: 69%;
+	.searchElements {
+	float: none;
+	width:90%;
+	height: 570px;
 	}
 
-	.randomWordSearch button{
-		-webkit-border-radius: 7px;
-		        border-radius: 7px;
+	.ptero_container {
+		display: none;
+	}
+
+	div.raptor_container {
+		position:absolute;
+		top:384px;
+		left: 35px;
+		width: 241px;
+	}
+
+	div.tri_container {
+		position: absolute;
+		top:390px;
+		right:44px;
+		width: 254px;
+		z-index: 700000;
+	}
+
+	.dinos_container {
+	position: absolute;
+	top: 0;
+	left:50%;
+	transform: translateX(-50%);
+	z-index: 50;
+	width: 90%;
+	height:1%;
+	}
+
+
+	li.searchButton a {
+		width: 30%
+	}
+
+  .random-search-word {
+		margin-top: .5em;
+		margin-bottom:1em;
+		padding: .6em .1em;
+		width: 61%;
 	}
 
 	.searchElements > form {
-	    padding-top: 25px;
+	    padding-bottom: 2em;
+	    padding-top: 1em;
 	}
 
+
 	#seachSubmitButton {
-		padding:10px 25px;
+    display: block;
+    margin: auto;
+		padding:10px 25px 12px 25px;
 		font-size: 1.6em;
 	}
 
@@ -1056,9 +1044,6 @@ div.raptor_container {
 	    margin-right: 10%;
 	}
 
-	.searchElements > form {
-	    padding-top: 25px;
-	}
 
 	.searchElements > form > label {
 		padding-left: 35%;
@@ -1088,38 +1073,41 @@ div.raptor_container {
 		width: 46%
 	}
 
-	.randomWordSearch {
-    position: absolute;
-    top: 390px;
-    width: 100%;
-    left:50%;
-    transform: translateX(-50%);
-	}
 
 	.searchElements > form {
-	    padding-top: 86px;
 	    padding-bottom: 65px;
 	}
 
 
 	.searchElements {
-		height:100%;
+		height:790px;
 	}
 
-	div.raptor_container {
-		top: 500px;
-		left: 14px;
-	}
-
-	.searchElements > form > label{
-		padding-left: 0;
-	}
-
-	li.searchButton a {
+		li.searchButton a {
 		font-size: 1.25em;
 		padding: .75em 0;
     width: 45%;
 	}
+
+	.random-search-word {
+		margin-top: .75em;
+		margin-bottom:.5em;
+		padding: .6em .1em;
+		width: 90%;
+	}
+
+	.searchElements > form > label {
+		padding-left: 0;
+	}
+
+	div.raptor_container {
+		top: 603px;
+		left: 14px;
+	}
+
+
+
+
 
 }
 

@@ -153,6 +153,7 @@ $(document).ready(function() {
 					$('#customSearch').val(randomWord);
 				}
 			});
+			$('#customSearch').focus();
 		}
 
 	//Build the message for no items found in etsy
@@ -345,7 +346,7 @@ $(document).ready(function() {
 	}); // end custom search function
 
 	//set up click event for random word generator button
-	$('#dinoRandom').click(function() {
+	$('a.random-search-word').click(function() {
 		randWordFinder();
 	});
 
