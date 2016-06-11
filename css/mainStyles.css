@@ -377,7 +377,12 @@ li.searchButton a:hover {
 	padding: 6px 10px;
 	margin-left:15px;
 	cursor: pointer;
+
 }
+
+#seachSubmitButton:hover {
+	background: #0082b9;
+	}
 
 .randomWordSearch button {
 	font-size: 1.3em;
@@ -681,7 +686,7 @@ margin: auto;
 	text-decoration: underline;
 }
 
-.noResponseMessage a span {
+.noResponseMessage a span, .no-wrap {
 	white-space: nowrap;
 }
 
@@ -1020,6 +1025,11 @@ div.raptor_container {
 	    padding-top: 25px;
 	}
 
+	#seachSubmitButton {
+		padding:10px 25px;
+		font-size: 1.6em;
+	}
+
 
 }
 
@@ -1031,7 +1041,85 @@ div.raptor_container {
     width: 35%;
 	}
 
+}
 
+/**** < 915 *** */
+@media only screen and (max-width: 915px) {
+
+
+	div.tri_container {
+		display:none;
+	}
+
+	form#dinoForm {
+	    text-align: right;
+	    margin-right: 10%;
+	}
+
+	.searchElements > form {
+	    padding-top: 25px;
+	}
+
+	.searchElements > form > label {
+		padding-left: 35%;
+		padding-bottom:8px;
+	}
+
+	input#customSearch {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom:10px;
+
+	}
+
+	#seachSubmitButton {
+    margin: 0 0 0 50%;
+    width: 50%;
+    }
+	
+
+}
+
+
+/**** < 760 *** */
+@media only screen and (max-width:760px) {
+
+	li.searchButton a {
+		width: 46%
+	}
+
+	.randomWordSearch {
+    position: absolute;
+    top: 390px;
+    width: 100%;
+    left:50%;
+    transform: translateX(-50%);
+	}
+
+	.searchElements > form {
+	    padding-top: 86px;
+	    padding-bottom: 65px;
+	}
+
+
+	.searchElements {
+		height:100%;
+	}
+
+	div.raptor_container {
+		top: 500px;
+		left: 14px;
+	}
+
+	.searchElements > form > label{
+		padding-left: 0;
+	}
+
+	li.searchButton a {
+		font-size: 1.25em;
+		padding: .75em 0;
+    width: 45%;
+	}
 
 }
 
