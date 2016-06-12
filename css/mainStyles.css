@@ -205,7 +205,7 @@ div.header-row {
 		url(../images/felt_stitch_purple.jpg) left top repeat-x,
 		url(../images/purple_felt_04.png) repeat;
 
-	height: 56px;
+	/*height: 56px;*/
 }
 
 .footer_row {
@@ -361,12 +361,6 @@ li.searchButton a:hover {
 }
 
 
-
-#seachSubmitButton {
-	border: none;
-
-}
-
 #customSearch {
 	width: 60%;
 }
@@ -377,6 +371,8 @@ li.searchButton a:hover {
 	padding: 6px 10px;
 	margin-left:15px;
 	cursor: pointer;
+	border: none;
+	-webkit-appearance: none;
 
 }
 
