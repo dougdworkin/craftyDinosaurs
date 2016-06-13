@@ -100,9 +100,15 @@ a {
 
 .searchAndResults {
 	width:100%;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: row;
+	-webkit-flex-wrap: row;
+	    -ms-flex-wrap: row;
+	        flex-wrap: row;
+	transition: -webkit-transform 10s ease-in-out;
 	transition: transform 10s ease-in-out;
+	transition: transform 10s ease-in-out, -webkit-transform 10s ease-in-out;
 	margin: 0 auto;
 	background-image: url('../images/felt_blue_01.jpg');
 
@@ -114,9 +120,15 @@ header, .searchContainer, .resultsContainer {
 	max-width:1000px;
 }
 
+.top-search-header{
+	
+}
+
 .outerSearchContainer, .outerResultsContainer {
 	width: 100%;
-	flex-shrink: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
 	padding: 1em 3em;
 	margin: 0 auto;
 	background-image: url('../images/felt_blue_01.jpg');
@@ -128,9 +140,15 @@ header, .searchContainer, .resultsContainer {
 
 .searchContainer {
 	padding-top: 1em;
+	display:-webkit-flex;
+	display:-ms-flexbox;
 	display:flex;
-	flex-wrap: nowrap;
-	justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	position: relative;
 }
 
@@ -317,18 +335,14 @@ li.searchButton a:before, li.searchButton a:after {
 	bottom: 1px;
 	background: transparent;
 	-webkit-transform: skew(-5deg) rotate(-5deg);
-	-moz-transform: skew(-5deg) rotate(-5deg);
-	-ms-transform: skew(-5deg) rotate(-5deg);
-	-o-transform: skew(-5deg) rotate(-5deg);
 	transform: skew(-5deg) rotate(-5deg);
-	-webkit-box-shadow: 0 6px 6px rgba(67, 114, 65, 1);
-	-moz-box-shadow: 0 6px 6px rgba(67, 114, 65, 1);
 	box-shadow: 0 6px 6px rgba(67, 114, 65, 1);
 	z-index: -1;
 }
 
 li.searchButton a:after {
-  transform: rotate(3deg);
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
   right: 2px;
   left: auto;
 }
@@ -460,12 +474,8 @@ h2.resultsSubHeader em{
 	margin-top:10px;
 	/* position: absolute; */
 	-webkit-transform: rotate(-3deg);
-	   -moz-transform: rotate(-3deg);
-		-ms-transform: rotate(-3deg);
-		 -o-transform: rotate(-3deg);
 			transform: rotate(-3deg);
-	-webkit-box-shadow: 0px 1px 9px #333333;
-			box-shadow: 0px 1px 9px #333333;
+	box-shadow: 0px 1px 9px #333333;
 }
 
 
@@ -480,8 +490,6 @@ h2.resultsSubHeader em{
 	z-index: 2;
 	background-color: rgba(243,245,228,0.4);
 	border: 2px solid rgba(255,255,255,0.1);
-	-webkit-box-shadow: 0px 0px 1px #333;
-	-moz-box-shadow: 0px 0px 1px #333;
 	box-shadow: 0px 0px 1px #333;
 	-webkit-transform: rotate(-3deg);
 	-moz-transform: rotate(6deg);
@@ -502,7 +510,9 @@ h2.resultsSubHeader em{
 	/*padding: 20px;*/
 	background-color: linen;
 	position:relative;
-	flex-shrink: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
 
 	background-color: green;
 	background-repeat: repeat-x;
@@ -514,12 +524,7 @@ h2.resultsSubHeader em{
 	  background: url(../images/stitches_left_side.jpg) left top repeat-y,
 		url(../images/stitches_right_side.jpg) right top repeat-y,
 		url(../images/felt_green_box_01.jpg);
-
-	-webkit-transition: left 2s ease-in-out;
-	   -moz-transition: left 2s ease-in-out;
-		-ms-transition: left 2s ease-in-out;
-		 -o-transition: left 2s ease-in-out;
-			transition: left 2s ease-in-out;
+transition: left 2s ease-in-out;
 }
 
 
@@ -527,6 +532,8 @@ h2.resultsSubHeader em{
 .resultsArea {
 	margin:1%;
 	margin-top:0;
+	display:-webkit-flex;
+	display:-ms-flexbox;
 	display:flex;
 	-webkit-flex-flow: row;
 		-ms-flex-flow: row;
@@ -534,12 +541,19 @@ h2.resultsSubHeader em{
 }
 
 .output {
-	padding: 1.5em 0 1.25em 0;
-	-webkit-flex-shrink: 0;/* this keeps container at 100% */
-			flex-shrink: 0;
+	padding: 1.5em 0 1.25em 0;/* this keeps container at 100% */
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
 	width: 100%;
-	justify-content: flex-start;
-	flex-wrap: wrap;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;/* this keeps container at 100% */
 
 }
@@ -548,8 +562,12 @@ h2.resultsSubHeader em{
 .itemCell {
 	width:31.3%;
 	max-height:450px;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex: 1 0 auto;
+	-webkit-flex: 1 0 auto;
+	    -ms-flex: 1 0 auto;
+	        flex: 1 0 auto;
 	margin-bottom: -1px;
 	margin-right: -1px;
 	text-align: center;
@@ -577,7 +595,6 @@ margin: auto;
 	background-color: white;
 	padding: 5px;
 	border: solid 1px purple;
-	-webkit-transition: background-color 1s;
 	transition: background-color 1s;
 }
 
@@ -642,13 +659,8 @@ margin: auto;
 	padding: 1.2em;
 	text-align: center;
 	border: solid .25em #8b70b1;
-	-webkit-transition: top 1s;
-	   -moz-transition: top 1s;
-		-ms-transition: top 1s;
-		 -o-transition: top 1s;
-			transition: top 1s;
-	-webkit-border-radius: 10px;
-			border-radius: 10px;
+transition: top 1s;
+	border-radius: 10px;
 }
 
 .noResponseMessage p {
@@ -674,8 +686,7 @@ margin: auto;
 	display: block;
 	letter-spacing: 1px;
 	cursor: pointer;
-	-webkit-border-radius: 10px;
-			border-radius: 10px;
+	border-radius: 10px;
 }
 
 .noResponseMessage a:hover {
@@ -702,12 +713,8 @@ margin: auto;
 	top: 45%;
 	display:none;
 	-webkit-transform: rotate(7deg) scale(0.85, 0.85);
-	   -moz-transform: rotate(7deg) scale(0.85, 0.85);
-	-ms-transform: rotate(7deg) scale(0.85, 0.85);
-	 -o-transform: rotate(7deg) scale(0.85, 0.85);
 	transform: rotate(7deg) scale(0.85, 0.85);
-	-webkit-box-shadow: 0px 0px 9px #333333;
-			box-shadow: 0px 0px 9px #333333;
+	box-shadow: 0px 0px 9px #333333;
 }
 
 .rightArrow {
@@ -715,21 +722,14 @@ margin: auto;
 	top: 45%;
 	display:none;
 	-webkit-transform: rotate(-7deg) scale(0.85, 0.85);
-	   -moz-transform: rotate(-7deg) scale(0.85, 0.85);
-	-ms-transform: rotate(-7deg) scale(0.85, 0.85);
-	 -o-transform: rotate(-7deg) scale(0.85, 0.85);
 		transform: rotate(-7deg) scale(0.85, 0.85);
-	-webkit-box-shadow: 0px 0px 9px #333333;
-			box-shadow: 0px 0px 9px #333333;
+	box-shadow: 0px 0px 9px #333333;
 }
 
 
 .leftArrow:hover, .rightArrow:hover {
 	cursor: pointer;
 	-webkit-transform: rotate(0deg) scale(1, 1);;
-	   -moz-transform: rotate(0deg) scale(1, 1);;
-	-ms-transform: rotate(0deg) scale(1, 1);;
-	 -o-transform: rotate(0deg) scale(1, 1);;
 		transform: rotate(0deg) scale(1, 1);
 
 }
@@ -758,8 +758,7 @@ margin: auto;
 	color: white;
 	text-decoration: none;
 	cursor: pointer;
-	-webkit-border-radius: 7px;
-			border-radius: 7px;
+	border-radius: 7px;
 	transition: background-color .25s ease-in-out;
 }
 
@@ -784,7 +783,9 @@ div.stegoPush {
 	border-left: 2px solid black;
 	border-right: 2px solid black;
 	width:45%;
-	flex-shrink: 0;
+	-webkit-flex-shrink: 0;
+	    -ms-flex-negative: 0;
+	        flex-shrink: 0;
 	position: relative;
 	overflow-x: hidden;
 
@@ -799,16 +800,24 @@ canvas {
 .flip {
 position: absolute;
 right:0;
--moz-transform: scale(-1, 1);
 -webkit-transform: scale(-1, 1);
--o-transform: scale(-1, 1);
 transform: scale(-1, 1);
-filter: FlipH;
+-webkit-filter: FlipH;
+        filter: FlipH;
+}
+
+
+@-webkit-keyframes play-forward{
+   100% { background-position: -3000px; }
 }
 
 
 @keyframes play-forward{
    100% { background-position: -3000px; }
+}
+
+@-webkit-keyframes play-backward{
+   100% { background-position: 3000px; }
 }
 
 @keyframes play-backward{
@@ -847,20 +856,24 @@ filter: FlipH;
 
 
 #rt_eyelid {
-	transform: translateY(-77%);
+	-webkit-transform: translateY(-77%);
+	        transform: translateY(-77%);
 }
 
 #rb_eyelid {
-	transform: translateY(61%);
+	-webkit-transform: translateY(61%);
+	        transform: translateY(61%);
 }
 
 
 #lt_eyelid {
-	transform: translateY(-89%);
+	-webkit-transform: translateY(-89%);
+	        transform: translateY(-89%);
 }
 
 #lb_eyelid {
-	transform: translateY(53%);
+	-webkit-transform: translateY(53%);
+	        transform: translateY(53%);
 }
 
 
@@ -883,19 +896,23 @@ div.raptor_container {
 }*/
 
 #eyelid_tl {
-	transform: translateY(-68%);
+	-webkit-transform: translateY(-68%);
+	        transform: translateY(-68%);
 }
 
 #eyelid_bl {
-	transform: translateY(44%);
+	-webkit-transform: translateY(44%);
+	        transform: translateY(44%);
 }
 
 #eyelid_tr {
-	transform: translateY(-67%);
+	-webkit-transform: translateY(-67%);
+	        transform: translateY(-67%);
 }
 
 #eyelid_br {
-	transform: translateY(41%);
+	-webkit-transform: translateY(41%);
+	        transform: translateY(41%);
 }
 
 
@@ -983,7 +1000,8 @@ div.raptor_container {
 	position: absolute;
 	top: 0;
 	left:50%;
-	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	        transform: translateX(-50%);
 	z-index: 50;
 	width: 90%;
 	height:1%;
@@ -1126,21 +1144,27 @@ div.raptor_container {
 
 	div.tri_container {
 		display:block;
-		top:61px;
+		top:102px;
 		right:8px;
+		width:200px
 	}
 
 	h2.searchWindow {
 		font-size: 3em;
 	}
 
-	li.searchButton a {
+	li.searchButton a, 	.random-search-word {
 			width: 90%;
-			padding: .75em;
-			font-size: 1.75em;
-			margin-top:.75em;
-			margin-bottom: 0;	
+			padding: .6em;
+			font-size: 1.25em;
+			float: none;
+			margin:0;
+			margin-top:1em;
 		}
+
+	.random-search-word {
+		font-size: 1.5em;
+	}	
 
 	.searchElements  {
 		height: 100%;
@@ -1149,23 +1173,32 @@ div.raptor_container {
 
 
 
-li.searchButton a:before, li.searchButton a:after {
-	width: 40%;
-	height: 23px;
-	left: 5px;
-	bottom: 5px;
-	-webkit-transform: skew(-20deg) rotate(-20deg);
-	-moz-transform: skew(-20deg) rotate(-20deg);
-	-ms-transform: skew(-20deg) rotate(-20deg);
-	-o-transform: skew(-20deg) rotate(-20deg);
-	transform: skew(-20deg) rotate(-5deg);
-}
+	li.searchButton a:before, li.searchButton a:after {
+		width: 0;
+		height:0;
+		left: 0;
+		bottom: 0;
+		-webkit-transform: none;
+		        transform: none;
+	}
 
-li.searchButton a:after {
-  transform: rotate(5deg);
-  right: 2px;
-  left: auto;
-}
+	form#dinoForm {
+		text-align: center;
+		margin-right:0
+	}
+
+	input#customSearch {
+    width: 80%;
+	}
+
+	#seachSubmitButton {
+     width: 80%;
+     margin:auto;
+  }
+
+  .searchElements > form > label {
+		font-size: 2em;
+	}
 
 
 }
