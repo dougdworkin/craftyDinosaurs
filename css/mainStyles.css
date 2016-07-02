@@ -77,6 +77,10 @@ body {
 	clear: both;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
 a {
 	cursor: pointer;
 }
@@ -94,7 +98,7 @@ a {
 	border-bottom:dashed 3px #fee6ba;
 	background-image: url('../images/yarn01.png');
 	margin-bottom: 5px;
-	box-shadow: 0 0 0 5px #613671, 2px 1px 6px 4px rgba(10, 10, 0, 1.0);
+	box-shadow: 0px 0px 0px 5px #613671, 2px 1px 6px 4px rgba(10, 10, 0, 1.0);
 }
 
 
@@ -120,9 +124,6 @@ header, .searchContainer, .resultsContainer {
 	max-width:1000px;
 }
 
-.top-search-header{
-	
-}
 
 .outerSearchContainer, .outerResultsContainer {
 	width: 100%;
@@ -134,9 +135,7 @@ header, .searchContainer, .resultsContainer {
 	background-image: url('../images/felt_blue_01.jpg');
 }
 
-.searchContainer, .resultsContainer {
 
-}
 
 .searchContainer {
 	padding-top: 1em;
@@ -166,12 +165,16 @@ header {
 .headerImage {
 	float: right;
 	padding-top: 6px;
+	height: auto;
+	width: 9em;
+	position: absolute;
+	right:3%;
+	top:4%;
+	z-index: 10;
+
 }
 
-header img {
-	height: auto;
-	width: 8em;
-}
+
 
 header h1{
 	font-family: "click-clack", serif;
@@ -218,10 +221,16 @@ header h2 {
 div.header-row {
 	position: relative;
 	background:
-	url(../images/stitches_l_t_corner.jpg) left top no-repeat,
-		url(../images/stitches_r_t_corner.jpg) right top no-repeat,
-		url(../images/felt_stitch_purple.jpg) left top repeat-x,
-		url(../images/purple_felt_04.png) repeat;
+	url(../images/stitch_corner_purple.jpg) left top no-repeat,
+	url(../images/stitch_corner_purple.jpg) right top no-repeat,
+	url(../images/stitch_left_purple_02.jpg) left top repeat-y,
+		url(../images/stitch_right_purple_02.jpg) right top repeat-y,
+		url(../images/stich_purple_top_02.jpg) left top repeat-x,
+		url(../images/purple_texture_banner.jpg) repeat;
+		-webkit-box-shadow: inset 0px -2px 0px rgba(4, 52, 107, .5),
+					inset 0 1.5px 1px rgba(255, 255, 255, .5);
+		  box-shadow: inset 0px -2px 0px rgba(64, 52, 107, .5),
+		      inset 0px 1.5px 1px rgba(255, 255, 255, .5);
 
 	/*height: 56px;*/
 }
@@ -336,7 +345,7 @@ li.searchButton a:before, li.searchButton a:after {
 	background: transparent;
 	-webkit-transform: skew(-5deg) rotate(-5deg);
 	transform: skew(-5deg) rotate(-5deg);
-	box-shadow: 0 6px 6px rgba(67, 114, 65, 1);
+	box-shadow: 0px 6px 6px rgba(67, 114, 65, 1);
 	z-index: -1;
 }
 
@@ -433,6 +442,9 @@ li.searchButton a:hover {
 	padding-right: 20px;
 }
 
+.results-header{
+	padding-bottom: 1em;
+}
 
 h1.resultsHeader {
 	font-size: 1.75em;
@@ -442,23 +454,18 @@ h1.resultsHeader {
 	display: inline-block;
 }
 
-/*h1.resultsHeader em{
-	font-weight: 700;
-	color:#64368b;
-}*/
 
 h2.resultsSubHeaders {
+	margin: 1.5em;
 	float: right;
 	display: inline-block;
 	font-size: 1.15em;
 	color: rgba(255,255,255, 0.7);
-	margin-right: 20px;
-	margin-top: 25px;
 }
 
-h2.resultsSubHeader em{
+/*h2.resultsSubHeader em{
 	font-weight: 700;
-}
+}*/
 
 
 .post-it-header {
@@ -505,9 +512,6 @@ h2.resultsSubHeader em{
 
 .resultsContainer {
 	width:90%;
-/*    border: solid 3px purple;
-	border-radius: 13px;*/
-	/*padding: 20px;*/
 	background-color: linen;
 	position:relative;
 	-webkit-flex-shrink: 0;
@@ -516,7 +520,6 @@ h2.resultsSubHeader em{
 
 	background-color: green;
 	background-repeat: repeat-x;
-	/*border-radius: 13px;*/
 	  box-shadow: 1px 1px 1px #000;
 	  background-image: url('../images/felt_green_box_01.jpg');
 	  background-repeat: repeat;
@@ -571,6 +574,7 @@ transition: left 2s ease-in-out;
 	margin-bottom: -1px;
 	margin-right: -1px;
 	text-align: center;
+	
 }
 
 .itemHolder {
@@ -1032,18 +1036,18 @@ div.raptor_container {
 		font-size: 1.6em;
 	}
 
-
-}
-
-
-/**** < 1080 *** */
-@media only screen and (max-width: 1080px) {
-
 	input#customSearch {
     width: 35%;
 	}
 
+	.outerResultsContainer {
+		padding:1em 0;
+	}
+
+
 }
+
+
 
 /**** < 915 *** */
 @media only screen and (max-width: 915px) {
@@ -1074,7 +1078,38 @@ div.raptor_container {
     margin: 0 0 0 50%;
     width: 50%;
     }
+
+    .results-header {
+    	text-align: center;
+    }
+
+    h1.resultsHeader {
+    	float: none;
+    	display: block;
+    }
+
+    .post-it-header {
+    	margin-right: .25em;
+    }
+
+    h2.resultsSubHeaders {
+    	clear: left;
+    	display: block;
+    	float: none;
+    	margin-top: .5em;
+    	margin-bottom: 0;
+    }
 	
+
+}
+
+/**** < 850 *** */
+@media only screen and (max-width:850px) {
+
+	.itemCell {
+		width: 50%;
+	}
+
 
 }
 
@@ -1117,6 +1152,10 @@ div.raptor_container {
 			top: 603px;
 			left: 14px;
 		}
+
+		.resultsContainer {
+		width: 90%;
+	}
 
 }
 
@@ -1199,6 +1238,19 @@ div.raptor_container {
   .searchElements > form > label {
 		font-size: 2em;
 	}
+}
+
+/**** < 500 *** */
+@media only screen and (max-width:500px) {
+
+	.itemCell {
+		width: 100%;
+	}
+
+	.itemHolder .image img {
+    width: 100%;
+    }
+
 
 
 }
