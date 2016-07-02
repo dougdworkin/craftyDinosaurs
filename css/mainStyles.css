@@ -1163,7 +1163,7 @@ div.raptor_container {
 /**** < 630 *** */
 @media only screen and (max-width:630px) {
 
-	.searchContainer {
+	.searchContainer, .resultsContainer  {
 		width: 100%;
 	}
 
@@ -1243,14 +1243,36 @@ div.raptor_container {
 /**** < 500 *** */
 @media only screen and (max-width:500px) {
 
-	.itemCell {
-		width: 100%;
+		.itemCell {
+			width: 100%;
+			max-height: none;
+		}
+
+		.itemHolder .image {
+			padding: 5% 0 5% 0;
+		}
+
+		.itemHolder .image img {
+		    width: 100%;
+		}
+
+		.itemHolder {
+    height: auto;
+    padding: .5em;
+   } 
+
+	.itemHolder h3 {
+		line-height: 1.20;
+		padding: 0 .25em;
 	}
 
-	.itemHolder .image img {
-    width: 100%;
-    }
+	.itemHolder h3, .itemHolder p {
+		font-size: 1.5em;
+	}
 
+	.itemHolder p {
+		margin: .25em 0 .75em 0;
+	}
 
 
 }
