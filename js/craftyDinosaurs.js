@@ -39,6 +39,19 @@ $(document).ready(function() {
 
 		};
 
+
+
+	// check if media query triggered for mobile to place h3
+	checkSize();
+	$(window).resize(checkSize);
+
+	function checkSize(){
+    if ($(".dinoImage").css("display") == "none" ){
+        console.log('move header');
+    	}
+	}
+
+
 	// send search request
 	function searchDinoStuff(searchTerm, keepHistory) {
 		console.log('boom');
